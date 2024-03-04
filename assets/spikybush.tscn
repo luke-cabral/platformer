@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jijkqcl1m3dv"]
+
+[ext_resource type="Texture2D" uid="uid://dv3p7nuj8fex5" path="res://assets/spikybush2.png" id="1_c1m0k"]
+
+[node name="spikybush" type="Sprite2D"]
+texture = ExtResource("1_c1m0k")

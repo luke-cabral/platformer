@@ -1,0 +1,285 @@
+[gd_scene load_steps=38 format=3 uid="uid://bsr4ykxb25vlh"]
+
+[ext_resource type="Script" path="res://characters/Thorne.gd" id="1_nqucs"]
+[ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne run.png" id="2_8hdjs"]
+[ext_resource type="Texture2D" uid="uid://bx3itsl6grk5v" path="res://characters/thornewall.png" id="3_vio3a"]
+[ext_resource type="Script" path="res://characters/Camera2D.gd" id="4_3yb2h"]
+[ext_resource type="Texture2D" uid="uid://d04lurk3mg67e" path="res://characters/swinger.png" id="4_xmxxq"]
+[ext_resource type="Texture2D" uid="uid://833wedrwwk38" path="res://characters/arm.png" id="6_em3e4"]
+[ext_resource type="Script" path="res://characters/grounded.gd" id="7_2n6m1"]
+[ext_resource type="Texture2D" uid="uid://1yntlwjjd0wn" path="res://characters/hand.png" id="7_xc8qs"]
+[ext_resource type="Script" path="res://characters/arm.gd" id="8_ul54i"]
+[ext_resource type="Script" path="res://characters/swing.gd" id="9_fv08q"]
+[ext_resource type="Script" path="res://characters/wall.gd" id="11_0x2o7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h72sy"]
+atlas = ExtResource("2_8hdjs")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr2sn"]
+atlas = ExtResource("2_8hdjs")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fifmt"]
+load_path = "res://.godot/imported/thorne run.png-5eae787af66e5992c0c4a4e1ec9c53cf.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srwa3"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwlh3"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uopj"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckfg4"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qavkw"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em6io"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gl03"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_850bc"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(5760, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7wdg"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w003"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydefd"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(3840, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2830"]
+atlas = SubResource("CompressedTexture2D_fifmt")
+region = Rect2(5760, 2160, 1920, 1080)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fp3jq"]
+load_path = "res://.godot/imported/thorn.png-0e7c1ce476fa31daf62f645ef6f5e64d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvil8"]
+atlas = SubResource("CompressedTexture2D_fp3jq")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80au3"]
+atlas = ExtResource("3_vio3a")
+region = Rect2(0, 0, 775, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ws2nl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h72sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr2sn")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srwa3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwlh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uopj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckfg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qavkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em6io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gl03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_850bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7wdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w003")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydefd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2830")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvil8")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80au3")
+}],
+"loop": true,
+"name": &"wall",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ue4f6"]
+radius = 22.5347
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncsq"]
+radius = 11.021
+height = 148.682
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3s6w"]
+radius = 13.9829
+height = 44.6821
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnnr4"]
+atlas = ExtResource("4_xmxxq")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr66o"]
+atlas = ExtResource("7_xc8qs")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joum0"]
+atlas = ExtResource("7_xc8qs")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_caul5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnnr4")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr66o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joum0")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 24.0
+}]
+
+[node name="Thorne" type="CharacterBody2D" groups=["thorne"]]
+position = Vector2(-6, 0)
+scale = Vector2(0.85, 0.85)
+script = ExtResource("1_nqucs")
+
+[node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ws2nl")
+animation = &"still"
+offset = Vector2(50, 0)
+
+[node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
+unique_name_in_owner = true
+top_level = true
+position_smoothing_speed = 1.0
+drag_top_margin = 0.6
+editor_draw_drag_margin = true
+script = ExtResource("4_3yb2h")
+
+[node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
+
+[node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
+position = Vector2(12, -16)
+rotation = 0.0872665
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_ue4f6")
+
+[node name="bodyhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
+position = Vector2(-1, 30)
+rotation = 0.0872665
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_jncsq")
+
+[node name="head" type="CollisionShape2D" parent="." groups=["thorne"]]
+position = Vector2(11, -16)
+rotation = 0.174533
+scale = Vector2(0.64, 0.64)
+shape = SubResource("CircleShape2D_ue4f6")
+
+[node name="feet" type="CollisionShape2D" parent="." groups=["thorne"]]
+position = Vector2(-7, 85)
+rotation = 1.72962
+scale = Vector2(0.64, 0.64)
+shape = SubResource("CapsuleShape2D_s3s6w")
+
+[node name="body" type="CollisionShape2D" parent="." groups=["thorne"]]
+position = Vector2(-1, 33)
+rotation = 0.174533
+scale = Vector2(0.64, 0.64)
+shape = SubResource("CapsuleShape2D_jncsq")
+
+[node name="arm" type="Sprite2D" parent="." groups=["thorne"]]
+visible = false
+position = Vector2(0.5, 14)
+scale = Vector2(0.075, 0.22)
+texture = ExtResource("6_em3e4")
+offset = Vector2(128, 0)
+script = ExtResource("8_ul54i")
+
+[node name="hand" type="AnimatedSprite2D" parent="arm" groups=["thorne"]]
+position = Vector2(255.5, -0.25)
+scale = Vector2(0.25, 1)
+sprite_frames = SubResource("SpriteFrames_caul5")
+animation = &"punch"
+offset = Vector2(128, 0)
+
+[node name="reach" type="RayCast2D" parent="arm/hand"]
+position = Vector2(75, 0)
+target_position = Vector2(800, 0)
+
+[node name="grounded" type="Node" parent="."]
+script = ExtResource("7_2n6m1")
+max_speed = 600
+gravity = 65.0
+jump_force = 1300
+acceleration = 9999
+friction = 99
+
+[node name="swing" type="Node" parent="."]
+script = ExtResource("9_fv08q")
+
+[node name="wall" type="Node" parent="."]
+script = ExtResource("11_0x2o7")
+
+[connection signal="body_entered" from="hitbox" to="." method="hit"]

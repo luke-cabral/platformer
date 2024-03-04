@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs77t3v3hwkgl"]
+
+[ext_resource type="Shader" path="res://paralax/visuals.gdshader" id="1_7r8i5"]
+[ext_resource type="Texture2D" uid="uid://bhw75le2tl84w" path="res://paralax/blur.png" id="2_nxjrh"]
+[ext_resource type="Script" path="res://paralax/0.gd" id="3_7s4uc"]
+[ext_resource type="PackedScene" uid="uid://bsr4ykxb25vlh" path="res://characters/thorne.tscn" id="4_ogukd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj7vt"]
+shader = ExtResource("1_7r8i5")
+shader_parameter/lod = 2.0
+
+[node name="visuals" type="Node"]
+
+[node name="-3" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+
+[node name="blur" type="Sprite2D" parent="-3"]
+material = SubResource("ShaderMaterial_pj7vt")
+position = Vector2(821, -73)
+texture = ExtResource("2_nxjrh")
+
+[node name="-2" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
+
+[node name="-1" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="0" type="CanvasLayer" parent="."]
+visible = false
+follow_viewport_enabled = true
+script = ExtResource("3_7s4uc")
+
+[node name="Thorne" parent="0" instance=ExtResource("4_ogukd")]
+
+[node name="1" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="2" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="3" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
+
+[node name="darken" type="Node2D" parent="3"]
+modulate = Color(0.364706, 0.364706, 0.364706, 1)

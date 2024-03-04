@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm34po5th11bx"]
+
+[ext_resource type="Texture2D" uid="uid://c6lb5somhlvkc" path="res://assets/rock.png" id="1_jdo5j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8w5w"]
+texture = ExtResource("1_jdo5j")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_desym"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_b8w5w")
+
+[node name="TileMap" type="TileMap" groups=["wall"]]
+scale = Vector2(0.25, 0.25)
+tile_set = SubResource("TileSet_desym")
+format = 2
