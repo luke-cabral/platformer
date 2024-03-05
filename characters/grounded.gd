@@ -2,11 +2,13 @@ extends state
 
 @onready var thorne = $".."
 @onready var thornesee = $"../thornesee"
+@onready var body = $"../body"
 @onready var arm = $"../arm"
 @onready var hand = $"../arm/hand"
 @onready var reach = $"../arm/hand/reach"
 @onready var swing = $"../swing"
 @onready var wall = $"../wall"
+
 
 @export var max_speed: int = 900
 @export var gravity: float = 55
@@ -59,7 +61,12 @@ func _physics_process(delta):
 		else:
 			thorne.velocity.x += acceleration * delta
 		thornesee.flip_h = false
-		thornesee.offset.x = 50
+		if thorne.is_on_floor():
+			thornesee.offset.x = 50
+			body.rotation_degrees = 0
+		else:
+			thornesee.offset.x = 10
+			body.rotation_degrees = 10
 		if thorne.is_on_floor():
 			thorne.see.play("run")
 	elif Input.is_action_pressed("ui_left"):
@@ -67,7 +74,12 @@ func _physics_process(delta):
 			thorne.velocity.x -= acceleration * delta * 2.5
 		else:
 			thorne.velocity.x -= acceleration * delta
-		thornesee.offset.x = -60
+		if thorne.is_on_floor():
+			thornesee.offset.x = -60
+			body.rotation_degrees = 0
+		else:
+			thornesee.offset.x = -20
+			body.rotation_degrees = -10
 		thornesee.flip_h = true
 		if thorne.is_on_floor():
 			thornesee.play("run")
@@ -127,6 +139,7 @@ func _physics_process(delta):
 		if arm.anchor:
 			pull = true
 			direction = Vector2.RIGHT.rotated(arm.rotation)
+			body.rotation_degrees = 0
 			
 	if pull:
 		var distance = thorne.global_position.distance_to(hand.global_position)

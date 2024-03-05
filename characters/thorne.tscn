@@ -202,6 +202,8 @@ script = ExtResource("1_nqucs")
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ws2nl")
 animation = &"jump"
+frame = 1
+frame_progress = 1.0
 offset = Vector2(50, 0)
 
 [node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
