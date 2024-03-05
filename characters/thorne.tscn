@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bsr4ykxb25vlh"]
+[gd_scene load_steps=37 format=3 uid="uid://bsr4ykxb25vlh"]
 
 [ext_resource type="Script" path="res://characters/Thorne.gd" id="1_nqucs"]
 [ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne run.png" id="2_8hdjs"]
@@ -157,12 +157,8 @@ animations = [{
 radius = 22.5347
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncsq"]
-radius = 11.021
-height = 148.682
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3s6w"]
-radius = 13.9829
-height = 44.6821
+radius = 14.7059
+height = 205.882
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnnr4"]
 atlas = ExtResource("4_xmxxq")
@@ -199,14 +195,13 @@ animations = [{
 }]
 
 [node name="Thorne" type="CharacterBody2D" groups=["thorne"]]
-position = Vector2(-6, 0)
 scale = Vector2(0.85, 0.85)
 script = ExtResource("1_nqucs")
 
 [node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ws2nl")
-animation = &"still"
+animation = &"jump"
 offset = Vector2(50, 0)
 
 [node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
@@ -218,6 +213,7 @@ editor_draw_drag_margin = true
 script = ExtResource("4_3yb2h")
 
 [node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
+visible = false
 
 [node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
 position = Vector2(12, -16)
@@ -231,21 +227,8 @@ rotation = 0.0872665
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_jncsq")
 
-[node name="head" type="CollisionShape2D" parent="." groups=["thorne"]]
-position = Vector2(11, -16)
-rotation = 0.174533
-scale = Vector2(0.64, 0.64)
-shape = SubResource("CircleShape2D_ue4f6")
-
-[node name="feet" type="CollisionShape2D" parent="." groups=["thorne"]]
-position = Vector2(-7, 85)
-rotation = 1.72962
-scale = Vector2(0.64, 0.64)
-shape = SubResource("CapsuleShape2D_s3s6w")
-
 [node name="body" type="CollisionShape2D" parent="." groups=["thorne"]]
-position = Vector2(-1, 33)
-rotation = 0.174533
+position = Vector2(-2.4, 28.235)
 scale = Vector2(0.64, 0.64)
 shape = SubResource("CapsuleShape2D_jncsq")
 

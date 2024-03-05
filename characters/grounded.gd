@@ -59,6 +59,7 @@ func _physics_process(delta):
 		else:
 			thorne.velocity.x += acceleration * delta
 		thornesee.flip_h = false
+		thornesee.offset.x = 50
 		if thorne.is_on_floor():
 			thorne.see.play("run")
 	elif Input.is_action_pressed("ui_left"):
@@ -66,6 +67,7 @@ func _physics_process(delta):
 			thorne.velocity.x -= acceleration * delta * 2.5
 		else:
 			thorne.velocity.x -= acceleration * delta
+		thornesee.offset.x = -60
 		thornesee.flip_h = true
 		if thorne.is_on_floor():
 			thornesee.play("run")
@@ -133,7 +135,8 @@ func _physics_process(delta):
 			thorne.velocity = direction * pull_speed
 			arm.scale.x -= potential_movement / 256
 		else:
-			thorne.velocity = direction * distance
+			thorne.velocity = direction * pull_speed * 1.05
+			arm.scale.x -= potential_movement / 256
 			arm.reset()
 			pull = false
 			thorne.move_and_slide()
