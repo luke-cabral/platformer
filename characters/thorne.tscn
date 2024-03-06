@@ -215,7 +215,6 @@ editor_draw_drag_margin = true
 script = ExtResource("4_3yb2h")
 
 [node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
-visible = false
 
 [node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
 position = Vector2(12, -16)
@@ -253,7 +252,7 @@ offset = Vector2(128, 0)
 position = Vector2(75, 0)
 target_position = Vector2(800, 0)
 
-[node name="grounded" type="Node" parent="."]
+[node name="grounded" type="Node2D" parent="."]
 script = ExtResource("7_2n6m1")
 max_speed = 600
 gravity = 65.0
@@ -261,10 +260,10 @@ jump_force = 1300
 acceleration = 9999
 friction = 99
 
-[node name="swing" type="Node" parent="."]
+[node name="swing" type="Node2D" parent="."]
 script = ExtResource("9_fv08q")
 
-[node name="wall" type="Node" parent="."]
+[node name="wall" type="Node2D" parent="."]
 script = ExtResource("11_0x2o7")
 
 [connection signal="body_entered" from="hitbox" to="." method="hit"]

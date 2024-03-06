@@ -1,5 +1,5 @@
 class_name state
-extends Node
+extends Node2D
 
 func _ready():
 	set_physics_process(false)

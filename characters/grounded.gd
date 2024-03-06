@@ -9,7 +9,6 @@ extends state
 @onready var swing = $"../swing"
 @onready var wall = $"../wall"
 
-
 @export var max_speed: int = 900
 @export var gravity: float = 55
 @export var jump_force: int = 1500
@@ -20,6 +19,8 @@ extends state
 @export var pull_speed: int = 2345
 @export var friction = 13
 
+var startpoint = Vector2.ZERO
+var endpoint = Vector2.ZERO
 var falling = false
 var coyote_counter: int = 0
 var jump_buffer_counter: int = 0
@@ -34,6 +35,10 @@ var max_stretch = 9
 func _ready():
 	start()
 	max_stretch = 256 * arm.max_length
+	
+#func _draw():
+	#draw_circle(startpoint, 30, Color.RED)  # Draw start point in red
+	#draw_circle(endpoint, 20, Color.BLUE)   # Draw end point in blue
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("swing"):
@@ -148,6 +153,9 @@ func _physics_process(delta):
 			thorne.velocity = direction * pull_speed
 			arm.scale.x -= potential_movement / 256
 		else:
+			startpoint = thorne.global_position + body.shape.height * direction.rotated(PI/2)
+			endpoint = thorne.global_position + body.shape.height * direction.rotated(-PI/2)
+			queue_redraw()
 			thorne.velocity = direction * pull_speed * 1.05
 			arm.scale.x -= potential_movement / 256
 			arm.reset()
