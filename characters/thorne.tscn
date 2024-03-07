@@ -196,6 +196,8 @@ animations = [{
 
 [node name="Thorne" type="CharacterBody2D" groups=["thorne"]]
 scale = Vector2(0.85, 0.85)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_nqucs")
 
 [node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
@@ -215,6 +217,7 @@ editor_draw_drag_margin = true
 script = ExtResource("4_3yb2h")
 
 [node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
+collision_layer = 2
 
 [node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
 position = Vector2(12, -16)
@@ -234,7 +237,6 @@ scale = Vector2(0.64, 0.64)
 shape = SubResource("CapsuleShape2D_jncsq")
 
 [node name="arm" type="Sprite2D" parent="." groups=["thorne"]]
-visible = false
 position = Vector2(0.5, 14)
 scale = Vector2(0.075, 0.22)
 texture = ExtResource("6_em3e4")
@@ -250,7 +252,8 @@ offset = Vector2(128, 0)
 
 [node name="reach" type="RayCast2D" parent="arm/hand"]
 position = Vector2(75, 0)
-target_position = Vector2(800, 0)
+target_position = Vector2(1200, 0)
+collision_mask = 5
 
 [node name="grounded" type="Node2D" parent="."]
 script = ExtResource("7_2n6m1")
@@ -259,6 +262,9 @@ gravity = 65.0
 jump_force = 1300
 acceleration = 9999
 friction = 99
+
+[node name="butler" type="RayCast2D" parent="grounded"]
+collision_mask = 5
 
 [node name="swing" type="Node2D" parent="."]
 script = ExtResource("9_fv08q")

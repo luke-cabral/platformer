@@ -8,6 +8,7 @@ var shooting = false
 var anchor = false
 var shrink = false
 var anchor_point = Vector2.ZERO
+var wall_angle = Vector2.RIGHT
 
 func _process(delta):
 	if shrink:
@@ -18,6 +19,7 @@ func _process(delta):
 			visible = false
 			shrink = false
 			rotation = 0
+			hand.rotation = 0
 	elif shooting and !anchor:
 		reach.force_raycast_update()
 		if reach.is_colliding():
@@ -37,10 +39,13 @@ func _process(delta):
 					collider.hit()
 					reset()
 				elif collider.is_in_group("wall"):
+					wall_angle = reach.get_collision_normal()
+					print(wall_angle)
 					anchor_point = hand.global_position
 					anchor = true
 					shooting = false
 					hand.play("swing")
+					hand.rotation = wall_angle.rotated(PI).angle()
 			else:
 				scale.x += grow_speed
 				hand.scale.x = .3 / scale.x

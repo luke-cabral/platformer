@@ -8,6 +8,9 @@ extends state
 @onready var reach = $"../arm/hand/reach"
 @onready var swing = $"../swing"
 @onready var wall = $"../wall"
+@onready var butler = $butler
+@onready var max_stretch = 256 * arm.max_length
+@onready var ray_space = body.shape.height/150
 
 @export var max_speed: int = 900
 @export var gravity: float = 55
@@ -18,6 +21,7 @@ extends state
 @export var fall_speed: int = 2000
 @export var pull_speed: int = 2345
 @export var friction = 13
+@export var wall_leeway = 33
 
 var startpoint = Vector2.ZERO
 var endpoint = Vector2.ZERO
@@ -30,11 +34,9 @@ var loadstate: bool = false
 var pull : bool = false
 var direction := Vector2.RIGHT
 var bypass_movement: bool = false
-var max_stretch = 9
 
 func _ready():
 	start()
-	max_stretch = 256 * arm.max_length
 	
 #func _draw():
 	#draw_circle(startpoint, 30, Color.RED)  # Draw start point in red
@@ -153,15 +155,17 @@ func _physics_process(delta):
 			thorne.velocity = direction * pull_speed
 			arm.scale.x -= potential_movement / 256
 		else:
-			startpoint = thorne.global_position + body.shape.height * direction.rotated(PI/2)
-			endpoint = thorne.global_position + body.shape.height * direction.rotated(-PI/2)
-			queue_redraw()
 			thorne.velocity = direction * pull_speed * 1.05
 			arm.scale.x -= potential_movement / 256
 			arm.reset()
 			pull = false
-			thorne.move_and_slide()
-			stop(wall)
+			body.rotation_degrees = 0
+			if suitable():
+				thorne.move_and_slide()
+				thorne.velocity = Vector2.ZERO
+				print("1")
+				stop(wall)
+				print("2")
 	elif arm.anchor:
 		arm.adjust()
 		var potential_new_position = thorne.global_position + thorne.velocity * delta
@@ -182,3 +186,36 @@ func _physics_process(delta):
 		
 	if arm.anchor:
 		arm.adjust()
+		
+func suitable() -> bool:
+	butler.rotation = arm.wall_angle.angle() + PI/2
+	butler.global_position = thorne.global_position + body.shape.height / 2 * arm.wall_angle.rotated(PI/2)
+	butler.force_raycast_update()
+	#if butler.get_collider() == null:
+		#print("L")
+		#return false
+	var distance = butler.get_collision_point().distance_to(butler.global_position)
+	for scrutiny in range(1,151):
+		butler.global_position = butler.global_position + ray_space * arm.wall_angle.rotated(-PI/2)
+		butler.force_raycast_update()
+		if scrutiny < wall_leeway or scrutiny > 150 - wall_leeway:
+			pass
+		elif butler.get_collider() == null:
+			print(scrutiny)
+			print("null")
+			return false
+		elif !butler.get_collider().is_in_group("wall"):
+			print(scrutiny)
+			print(butler.get_collider())
+			return false
+		elif butler.get_collision_point().distance_to(butler.global_position) != distance:
+			print(scrutiny)
+			print(butler.get_collider())
+			print(distance)
+			print(butler.get_collision_point().distance_to(butler.global_position) )
+			return false
+	return true
+	
+	
+	
+	
