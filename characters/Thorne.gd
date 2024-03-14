@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var cam = $Cam
 @onready var swing = $swing
 
+@export var scroll_speed = 0.4
+
 var falling = false
 var oldy = 0
 var health = 3
@@ -17,6 +19,9 @@ func _process(delta):
 		if !falling:
 			falling = true
 			see.play("jump")
+			
+	if (global_position.y - oldy) < -400:
+		oldy = lerp(oldy, global_position.y + 300, scroll_speed)
 	
 	if is_on_floor():
 		oldy = global_position.y

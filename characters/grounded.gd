@@ -141,6 +141,8 @@ func _physics_process(delta):
 		if arm.shooting:
 			hand.play("punch")
 			arm.reset()
+		else:
+			suitable()
 			
 	if Input.is_action_just_pressed("pull"):
 		if arm.anchor:
@@ -162,7 +164,6 @@ func _physics_process(delta):
 			body.rotation_degrees = 0
 			if suitable():
 				thorne.move_and_slide()
-				thorne.velocity = Vector2.ZERO
 				stop(wall)
 	elif arm.anchor:
 		arm.adjust()
@@ -187,8 +188,7 @@ func _physics_process(delta):
 		
 func suitable() -> bool:
 	butler.rotation = arm.wall_angle.angle() + PI/2
-	butler.global_position = hand.global_position + (body.shape.height - 2 * wall_leeway) / 2 * arm.wall_angle.rotated(PI/2) + 25 * arm.wall_angle
-	print(arm.wall_angle)
+	butler.global_position = arm.anchor_point + (body.shape.height - 2 * wall_leeway) / 2 * arm.wall_angle.rotated(PI/2) + 25 * arm.wall_angle
 	butler.force_raycast_update()
 	if butler.get_collider() == null:
 		print("L")
