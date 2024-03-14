@@ -45,7 +45,7 @@ func _process(delta):
 					anchor = true
 					shooting = false
 					hand.play("swing")
-					hand.rotation = wall_angle.rotated(PI).angle()
+					#hand.rotation = wall_angle.rotated(PI).angle()
 			else:
 				scale.x += grow_speed
 				hand.scale.x = .3 / scale.x

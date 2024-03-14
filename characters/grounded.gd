@@ -163,9 +163,7 @@ func _physics_process(delta):
 			if suitable():
 				thorne.move_and_slide()
 				thorne.velocity = Vector2.ZERO
-				print("1")
 				stop(wall)
-				print("2")
 	elif arm.anchor:
 		arm.adjust()
 		var potential_new_position = thorne.global_position + thorne.velocity * delta
@@ -189,18 +187,17 @@ func _physics_process(delta):
 		
 func suitable() -> bool:
 	butler.rotation = arm.wall_angle.angle() + PI/2
-	butler.global_position = thorne.global_position + body.shape.height / 2 * arm.wall_angle.rotated(PI/2)
+	butler.global_position = hand.global_position + (body.shape.height - 2 * wall_leeway) / 2 * arm.wall_angle.rotated(PI/2) + 25 * arm.wall_angle
+	print(arm.wall_angle)
 	butler.force_raycast_update()
-	#if butler.get_collider() == null:
-		#print("L")
-		#return false
+	if butler.get_collider() == null:
+		print("L")
+		return false
 	var distance = butler.get_collision_point().distance_to(butler.global_position)
-	for scrutiny in range(1,151):
+	for scrutiny in range(1 + wall_leeway, 151 - wall_leeway):
 		butler.global_position = butler.global_position + ray_space * arm.wall_angle.rotated(-PI/2)
 		butler.force_raycast_update()
-		if scrutiny < wall_leeway or scrutiny > 150 - wall_leeway:
-			pass
-		elif butler.get_collider() == null:
+		if butler.get_collider() == null:
 			print(scrutiny)
 			print("null")
 			return false
@@ -208,7 +205,7 @@ func suitable() -> bool:
 			print(scrutiny)
 			print(butler.get_collider())
 			return false
-		elif butler.get_collision_point().distance_to(butler.global_position) != distance:
+		elif floor(butler.get_collision_point().distance_to(butler.global_position)) != floor(distance):
 			print(scrutiny)
 			print(butler.get_collider())
 			print(distance)

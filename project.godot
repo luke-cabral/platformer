@@ -13,7 +13,7 @@ config_version=5
 config/name="Hobby"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0.219608, 0.227451, 1)
+boot_splash/bg_color=Color(0, 0.717647, 0.741176, 1)
 config/icon="res://icon.svg"
 
 [display]

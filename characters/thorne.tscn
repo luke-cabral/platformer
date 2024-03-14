@@ -1,10 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://bsr4ykxb25vlh"]
+[gd_scene load_steps=36 format=3 uid="uid://bsr4ykxb25vlh"]
 
 [ext_resource type="Script" path="res://characters/Thorne.gd" id="1_nqucs"]
 [ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne run.png" id="2_8hdjs"]
 [ext_resource type="Texture2D" uid="uid://bx3itsl6grk5v" path="res://characters/thornewall.png" id="3_vio3a"]
 [ext_resource type="Script" path="res://characters/Camera2D.gd" id="4_3yb2h"]
-[ext_resource type="Texture2D" uid="uid://d04lurk3mg67e" path="res://characters/swinger.png" id="4_xmxxq"]
 [ext_resource type="Texture2D" uid="uid://833wedrwwk38" path="res://characters/arm.png" id="6_em3e4"]
 [ext_resource type="Script" path="res://characters/grounded.gd" id="7_2n6m1"]
 [ext_resource type="Texture2D" uid="uid://1yntlwjjd0wn" path="res://characters/hand.png" id="7_xc8qs"]
@@ -160,9 +159,9 @@ radius = 22.5347
 radius = 14.7059
 height = 205.882
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnnr4"]
-atlas = ExtResource("4_xmxxq")
-region = Rect2(0, 0, 256, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycsv8"]
+atlas = ExtResource("7_xc8qs")
+region = Rect2(256, 0, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hr66o"]
 atlas = ExtResource("7_xc8qs")
@@ -176,7 +175,7 @@ region = Rect2(0, 0, 256, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rnnr4")
+"texture": SubResource("AtlasTexture_ycsv8")
 }],
 "loop": true,
 "name": &"punch",
@@ -237,6 +236,7 @@ scale = Vector2(0.64, 0.64)
 shape = SubResource("CapsuleShape2D_jncsq")
 
 [node name="arm" type="Sprite2D" parent="." groups=["thorne"]]
+visible = false
 position = Vector2(0.5, 14)
 scale = Vector2(0.075, 0.22)
 texture = ExtResource("6_em3e4")
