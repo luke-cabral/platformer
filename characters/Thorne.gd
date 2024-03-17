@@ -5,13 +5,16 @@ extends CharacterBody2D
 @onready var swing = $swing
 
 @export var scroll_speed = 0.4
+@export var size = 0.2
 
 var falling = false
 var oldy = 0
 var health = 3
 
+func _ready():
+	see.scale = Vector2(size, size)
+
 func _process(delta):
-	
 	if (global_position.y - oldy) > 100 or falling:
 		oldy = global_position.y + 300
 		if cam.timey < 8:
@@ -40,9 +43,3 @@ func hit(body):
 func damaged():
 	health -= 1
 	print(health)
-	
-func debug():
-	var thorne_pos = global_position  # Assume this script is attached to Thorn
-	var end_velocity = thorne_pos + velocity.normalized() * 50  # Adjust length as needed
-	draw_line(thorne_pos, end_velocity, Color(0, 1, 0, 1), 2)  # Draw velocity in green
-

@@ -37,10 +37,6 @@ var bypass_movement: bool = false
 
 func _ready():
 	start()
-	
-#func _draw():
-	#draw_circle(startpoint, 30, Color.RED)  # Draw start point in red
-	#draw_circle(endpoint, 20, Color.BLUE)   # Draw end point in blue
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("swing"):
@@ -70,10 +66,8 @@ func _physics_process(delta):
 		thornesee.flip_h = false
 		if thorne.is_on_floor():
 			thornesee.offset.x = 50
-			body.rotation_degrees = 0
 		else:
 			thornesee.offset.x = 10
-			body.rotation_degrees = 10
 		if thorne.is_on_floor():
 			thorne.see.play("run")
 	elif Input.is_action_pressed("ui_left"):
@@ -83,10 +77,8 @@ func _physics_process(delta):
 			thorne.velocity.x -= acceleration * delta
 		if thorne.is_on_floor():
 			thornesee.offset.x = -60
-			body.rotation_degrees = 0
 		else:
 			thornesee.offset.x = -20
-			body.rotation_degrees = -10
 		thornesee.flip_h = true
 		if thorne.is_on_floor():
 			thornesee.play("run")
@@ -120,7 +112,7 @@ func _physics_process(delta):
 			loadstate = true
 		
 	if Input.is_action_just_released("jump"):
-		if thorne.velocity.y < 0:
+		if thorne.velocity.y < -123:
 			thorne.velocity.y += 700
 			
 	if thorne.is_on_wall() and !arm.anchor and !thorne.is_on_floor():
@@ -130,6 +122,9 @@ func _physics_process(delta):
 			print(collision)
 			if acceptable(collision):
 				arm.wall_angle = collision
+				arm.reset()
+				pull = false
+				body.rotation_degrees = 0
 				stop(wall)
 			
 	if Input.is_action_just_pressed("grapple"):
@@ -248,7 +243,3 @@ func acceptable(collision) -> bool:
 			print(butler.get_collision_point().distance_to(butler.global_position) )
 			return false
 	return true
-	
-	
-	
-	

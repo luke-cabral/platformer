@@ -194,7 +194,6 @@ animations = [{
 }]
 
 [node name="Thorne" type="CharacterBody2D" groups=["thorne"]]
-scale = Vector2(0.85, 0.85)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_nqucs")
@@ -202,9 +201,7 @@ script = ExtResource("1_nqucs")
 [node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ws2nl")
-animation = &"jump"
-frame = 1
-frame_progress = 1.0
+animation = &"still"
 offset = Vector2(50, 0)
 
 [node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
@@ -216,6 +213,7 @@ editor_draw_drag_margin = true
 script = ExtResource("4_3yb2h")
 
 [node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
+visible = false
 collision_layer = 2
 
 [node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
@@ -258,10 +256,11 @@ collision_mask = 5
 [node name="grounded" type="Node2D" parent="."]
 script = ExtResource("7_2n6m1")
 max_speed = 600
-gravity = 65.0
+gravity = 60.0
 jump_force = 1300
 acceleration = 9999
 friction = 99
+wall_leeway = 44
 
 [node name="butler" type="RayCast2D" parent="grounded"]
 collision_mask = 5
