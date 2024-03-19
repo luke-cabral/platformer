@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://bsr4ykxb25vlh"]
+[gd_scene load_steps=51 format=3 uid="uid://bsr4ykxb25vlh"]
 
 [ext_resource type="Script" path="res://characters/Thorne.gd" id="1_nqucs"]
 [ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne run.png" id="2_8hdjs"]
+[ext_resource type="Texture2D" uid="uid://ddhg22y10e8q8" path="res://characters/thorne pirate.png" id="3_t5ioh"]
 [ext_resource type="Texture2D" uid="uid://bx3itsl6grk5v" path="res://characters/thornewall.png" id="3_vio3a"]
 [ext_resource type="Script" path="res://characters/Camera2D.gd" id="4_3yb2h"]
-[ext_resource type="Texture2D" uid="uid://833wedrwwk38" path="res://characters/arm.png" id="6_em3e4"]
+[ext_resource type="Texture2D" uid="uid://v0t8a10v3wlt" path="res://characters/armt.png" id="5_h4i3v"]
 [ext_resource type="Script" path="res://characters/grounded.gd" id="7_2n6m1"]
 [ext_resource type="Texture2D" uid="uid://1yntlwjjd0wn" path="res://characters/hand.png" id="7_xc8qs"]
 [ext_resource type="Script" path="res://characters/arm.gd" id="8_ul54i"]
@@ -17,6 +18,14 @@ region = Rect2(3840, 0, 1920, 1080)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pr2sn"]
 atlas = ExtResource("2_8hdjs")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phiiv"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndomb"]
+atlas = ExtResource("3_t5ioh")
 region = Rect2(5760, 0, 1920, 1080)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fifmt"]
@@ -70,6 +79,54 @@ region = Rect2(3840, 2160, 1920, 1080)
 atlas = SubResource("CompressedTexture2D_fifmt")
 region = Rect2(5760, 2160, 1920, 1080)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw3bc"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58p8i"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6jcr"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiia6"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oydjy"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8nrq"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwqca"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_150du"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(5760, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arpoi"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7di2i"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pihk1"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(3840, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxayk"]
+atlas = ExtResource("3_t5ioh")
+region = Rect2(5760, 2160, 1920, 1080)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fp3jq"]
 load_path = "res://.godot/imported/thorn.png-0e7c1ce476fa31daf62f645ef6f5e64d.ctex"
 
@@ -92,6 +149,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phiiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndomb")
+}],
+"loop": false,
+"name": &"jump noarm",
 "speed": 8.0
 }, {
 "frames": [{
@@ -133,6 +201,47 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw3bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58p8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6jcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiia6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oydjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8nrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwqca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_150du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arpoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7di2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pihk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxayk")
+}],
+"loop": true,
+"name": &"run noarm",
 "speed": 12.0
 }, {
 "frames": [{
@@ -201,7 +310,7 @@ script = ExtResource("1_nqucs")
 [node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ws2nl")
-animation = &"still"
+animation = &"jump noarm"
 offset = Vector2(50, 0)
 
 [node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
@@ -234,9 +343,9 @@ scale = Vector2(0.64, 0.64)
 shape = SubResource("CapsuleShape2D_jncsq")
 
 [node name="arm" type="Sprite2D" parent="." groups=["thorne"]]
-position = Vector2(0, 16)
+position = Vector2(-2, 9)
 scale = Vector2(0.075, 0.22)
-texture = ExtResource("6_em3e4")
+texture = ExtResource("5_h4i3v")
 offset = Vector2(128, 0)
 script = ExtResource("8_ul54i")
 

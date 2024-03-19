@@ -9,14 +9,19 @@ extends Sprite2D
 var shooting = false
 var anchor = false
 var shrink = false
+var busy = false
 var anchor_point = Vector2.ZERO
 var wall_angle = Vector2.RIGHT
 
 func _process(delta):
+	if anchor or shooting:
+		busy = true
+	
 	if shrink:
 		scale.x -= grow_speed
 		stable()
 		if scale.x < .075:
+			busy = false
 			hand.play("punch")
 			visible = false
 			shrink = false

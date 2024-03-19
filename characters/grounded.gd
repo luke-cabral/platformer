@@ -25,7 +25,6 @@ extends state
 
 var startpoint = Vector2.ZERO
 var endpoint = Vector2.ZERO
-var falling = false
 var coyote_counter: int = 0
 var jump_buffer_counter: int = 0
 var prep_swing: int = 20
@@ -69,7 +68,10 @@ func _physics_process(delta):
 		else:
 			thornesee.offset.x = 10
 		if thorne.is_on_floor():
-			thorne.see.play("run")
+			if arm.busy:
+				thorne.see.play("run noarm")
+			else:
+				thorne.see.play("run")
 	elif Input.is_action_pressed("ui_left"):
 		if thorne.velocity.x > 0:
 			thorne.velocity.x -= acceleration * delta * 2.5
@@ -81,7 +83,10 @@ func _physics_process(delta):
 			thornesee.offset.x = -20
 		thornesee.flip_h = true
 		if thorne.is_on_floor():
-			thornesee.play("run")
+			if arm.busy:
+				thorne.see.play("run noarm")
+			else:
+				thorne.see.play("run")
 	else:
 		thorne.velocity.x = lerp(thorne.velocity.x, 0.0, friction * delta)
 		if thorne.is_on_floor():
@@ -102,7 +107,10 @@ func _physics_process(delta):
 		thorne.velocity.y -= jump_force
 		jump_buffer_counter = 0
 		coyote_counter = 0
-		thornesee.play("jump")
+		if arm.busy:
+			thorne.see.play("jump noarm")
+		else:
+			thorne.see.play("jump")
 		if arm.anchor:
 			prepping = prep_swing
 		
