@@ -1,9 +1,11 @@
 extends Sprite2D
 
 @onready var hand = $hand
-@onready var reach = $hand/reach
+@onready var wrist = $hand/wrist
+@onready var reach = $hand/wrist/reach
 @export var grow_speed = 0.2
 @export var max_length = 2
+@export var searchzone = 10
 var shooting = false
 var anchor = false
 var shrink = false
@@ -13,7 +15,7 @@ var wall_angle = Vector2.RIGHT
 func _process(delta):
 	if shrink:
 		scale.x -= grow_speed
-		hand.scale.x = .3 / scale.x
+		stable()
 		if scale.x < .075:
 			hand.play("punch")
 			visible = false
@@ -21,56 +23,89 @@ func _process(delta):
 			rotation = 0
 			hand.rotation = 0
 	elif shooting and !anchor:
-		reach.force_raycast_update()
-		if reach.is_colliding():
-			var collider = reach.get_collider()
-			var where = reach.get_collision_point()
-			var where2 = where.distance_to(reach.global_position)
-			if where2 < grow_speed * 256:
-				if collider.is_in_group("wall"):
-					reach.position.x = 34
-					reach.force_raycast_update()
-					where = reach.get_collision_point()
-					where2 = where.distance_to(reach.global_position)
-					reach.position.x = 75
-				scale.x += where2 / .512 * .002
-				hand.scale.x = .3 / scale.x
-				if collider.is_in_group("bad"):
-					collider.hit()
-					reset()
-				elif collider.is_in_group("wall"):
-					wall_angle = reach.get_collision_normal()
-					print(wall_angle)
-					anchor_point = hand.global_position
-					anchor = true
-					shooting = false
-					hand.play("swing")
-					#hand.rotation = wall_angle.rotated(PI).angle()
-			else:
-				scale.x += grow_speed
-				hand.scale.x = .3 / scale.x
-				if scale.x > max_length:
-					reset()
-		else:
-			scale.x += grow_speed
-			hand.scale.x = .3 / scale.x
-			if scale.x > 2:
-				reset()
-	elif anchor:
-		pass
+		aim()
 		
 func reset():
 	anchor = false
 	shooting = false
 	shrink = true
 	
-func adjust():
+func adjust() -> void:
 	hand.global_position = anchor_point
 	var direction = anchor_point - global_position
 	rotation = direction.angle()
 	var distance = global_position.distance_to(anchor_point)
 	scale.x = distance / 256
-	hand.scale.x = .3 / scale.x
+	stable()
 	hand.global_position = anchor_point
 	
+func stable() -> void:
+	hand.scale.x = .3 / scale.x
+	wrist.scale.x = 1
+	
+func aim():
+	if knuckle():
+		impact()
+		return
+	for x in range(1, searchzone + 1):
+		wrist.rotate(PI/90 * x)
+		reach.force_raycast_update()
+		if knuckle():
+			shoulder(reach.get_collision_point())
+			wrist.rotation = 0
+			reach.force_raycast_update()
+			impact()
+			return
+		else:
+			wrist.rotate(-PI/45 * x)
+			reach.force_raycast_update()
+			if knuckle():
+				shoulder(reach.get_collision_point())
+				wrist.rotation = 0
+				reach.force_raycast_update()
+				impact()
+				return
+		wrist.rotation = 0
+	stretch()
+	
+func knuckle() -> bool:
+	if reach.is_colliding():
+		var distance = reach.get_collision_point().distance_to(reach.global_position)
+		return(distance < grow_speed * 256)
+	else:
+		return(false)
 
+func impact():
+	var collider = reach.get_collider()
+	if !collider:
+		aim()
+		return
+		
+	if collider.is_in_group("wall"):
+		reach.position.x = 34
+	var distance = reach.get_collision_point().distance_to(reach.global_position)
+	reach.position.x = 75
+	scale.x += distance / .512 * .002
+	stable()
+	
+	if collider.is_in_group("bad"):
+		collider.hit()
+		reset()
+	elif collider.is_in_group("wall"):
+		wall_angle = reach.get_collision_normal()
+		anchor_point = hand.global_position
+		anchor = true
+		shooting = false
+		hand.play("swing")
+		
+func stretch() -> void:
+	scale.x += grow_speed
+	stable()
+	if scale.x > max_length:
+		reset()
+
+func shoulder(target) -> void:
+	var direction = target - global_position
+	rotation = direction.angle()
+
+	

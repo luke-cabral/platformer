@@ -195,25 +195,16 @@ func suitable() -> bool:
 	butler.global_position = arm.anchor_point + (body.shape.height - 2 * wall_leeway) / 2 * arm.wall_angle.rotated(PI/2) + 25 * arm.wall_angle
 	butler.force_raycast_update()
 	if butler.get_collider() == null:
-		print("L")
 		return false
 	var distance = butler.get_collision_point().distance_to(butler.global_position)
 	for scrutiny in range(1 + wall_leeway, 151 - wall_leeway):
 		butler.global_position = butler.global_position + ray_space * arm.wall_angle.rotated(-PI/2)
 		butler.force_raycast_update()
 		if butler.get_collider() == null:
-			print(scrutiny)
-			print("null")
 			return false
 		elif !butler.get_collider().is_in_group("wall"):
-			print(scrutiny)
-			print(butler.get_collider())
 			return false
 		elif floor(butler.get_collision_point().distance_to(butler.global_position)) != floor(distance):
-			print(scrutiny)
-			print(butler.get_collider())
-			print(distance)
-			print(butler.get_collision_point().distance_to(butler.global_position) )
 			return false
 	return true
 	
@@ -222,24 +213,16 @@ func acceptable(collision) -> bool:
 	butler.global_position = global_position + Vector2(0, 25) + (body.shape.height - 2 * wall_leeway) / 2 * collision.rotated(PI/2)# + 25 * collision
 	butler.force_raycast_update()
 	if butler.get_collider() == null:
-		print("L")
 		return false
 	var distance = butler.get_collision_point().distance_to(butler.global_position)
 	for scrutiny in range(1 + wall_leeway, 151 - wall_leeway):
 		butler.global_position = butler.global_position + ray_space * collision.rotated(-PI/2)
 		butler.force_raycast_update()
 		if butler.get_collider() == null:
-			print(scrutiny)
-			print("null")
 			return false
 		elif !butler.get_collider().is_in_group("wall"):
-			print(scrutiny)
-			print(butler.get_collider())
 			return false
 		elif floor(butler.get_collision_point().distance_to(butler.global_position)) != floor(distance):
-			print(scrutiny)
-			print(butler.get_collider())
-			print(distance)
-			print(butler.get_collision_point().distance_to(butler.global_position) )
 			return false
 	return true
+	

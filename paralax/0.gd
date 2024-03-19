@@ -12,4 +12,4 @@ func _process(delta):
 		if !enemy:
 			enemiestx.erase(enemy)
 		else:
-			enemy.navigate(thorne.global_position.x)	
+			enemy.navigate(thorne.global_position.x)

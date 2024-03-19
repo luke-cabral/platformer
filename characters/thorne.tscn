@@ -234,8 +234,7 @@ scale = Vector2(0.64, 0.64)
 shape = SubResource("CapsuleShape2D_jncsq")
 
 [node name="arm" type="Sprite2D" parent="." groups=["thorne"]]
-visible = false
-position = Vector2(0.5, 14)
+position = Vector2(0, 16)
 scale = Vector2(0.075, 0.22)
 texture = ExtResource("6_em3e4")
 offset = Vector2(128, 0)
@@ -243,14 +242,16 @@ script = ExtResource("8_ul54i")
 
 [node name="hand" type="AnimatedSprite2D" parent="arm" groups=["thorne"]]
 position = Vector2(255.5, -0.25)
-scale = Vector2(0.25, 1)
+scale = Vector2(0.3, 1)
 sprite_frames = SubResource("SpriteFrames_caul5")
 animation = &"punch"
 offset = Vector2(128, 0)
 
-[node name="reach" type="RayCast2D" parent="arm/hand"]
+[node name="wrist" type="Node2D" parent="arm/hand"]
+
+[node name="reach" type="RayCast2D" parent="arm/hand/wrist"]
 position = Vector2(75, 0)
-target_position = Vector2(1200, 0)
+target_position = Vector2(400, 0)
 collision_mask = 5
 
 [node name="grounded" type="Node2D" parent="."]
