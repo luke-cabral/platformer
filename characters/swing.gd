@@ -2,9 +2,9 @@ extends state
 
 @onready var thorne: CharacterBody2D = $".."
 @onready var thornesee: AnimatedSprite2D = $"../thornesee"
-@onready var arm: Sprite2D = $"../arm"
+@onready var arm: AnimatedSprite2D = $"../arm"
 @onready var hand: AnimatedSprite2D = $"../arm/hand"
-@onready var reach: RayCast2D = $"../arm/hand/reach"
+@onready var reach: RayCast2D = $"../arm/hand/wrist/reach"
 @onready var grounded: state = $"../grounded"
 @export var max_swing_speed: float = 5000.0
 @export var acceleration: float = 2700.0

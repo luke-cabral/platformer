@@ -1,13 +1,15 @@
-[gd_scene load_steps=51 format=3 uid="uid://bsr4ykxb25vlh"]
+[gd_scene load_steps=61 format=3 uid="uid://bsr4ykxb25vlh"]
 
 [ext_resource type="Script" path="res://characters/Thorne.gd" id="1_nqucs"]
 [ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne run.png" id="2_8hdjs"]
 [ext_resource type="Texture2D" uid="uid://ddhg22y10e8q8" path="res://characters/thorne pirate.png" id="3_t5ioh"]
 [ext_resource type="Texture2D" uid="uid://bx3itsl6grk5v" path="res://characters/thornewall.png" id="3_vio3a"]
 [ext_resource type="Script" path="res://characters/Camera2D.gd" id="4_3yb2h"]
+[ext_resource type="Texture2D" uid="uid://ca1a3k117lkts" path="res://characters/thorn armeless.png" id="4_w0o3g"]
 [ext_resource type="Texture2D" uid="uid://v0t8a10v3wlt" path="res://characters/armt.png" id="5_h4i3v"]
 [ext_resource type="Script" path="res://characters/grounded.gd" id="7_2n6m1"]
 [ext_resource type="Texture2D" uid="uid://1yntlwjjd0wn" path="res://characters/hand.png" id="7_xc8qs"]
+[ext_resource type="Texture2D" uid="uid://b7w23beub5u2g" path="res://characters/slash.png" id="8_l4ti8"]
 [ext_resource type="Script" path="res://characters/arm.gd" id="8_ul54i"]
 [ext_resource type="Script" path="res://characters/swing.gd" id="9_fv08q"]
 [ext_resource type="Script" path="res://characters/wall.gd" id="11_0x2o7"]
@@ -134,6 +136,10 @@ load_path = "res://.godot/imported/thorn.png-0e7c1ce476fa31daf62f645ef6f5e64d.ct
 atlas = SubResource("CompressedTexture2D_fp3jq")
 region = Rect2(0, 0, 1920, 1080)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_opyap"]
+atlas = ExtResource("4_w0o3g")
+region = Rect2(0, 0, 1920, 1080)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_80au3"]
 atlas = ExtResource("3_vio3a")
 region = Rect2(0, 0, 775, 512)
@@ -254,6 +260,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_opyap")
+}],
+"loop": true,
+"name": &"still noarm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_80au3")
 }],
 "loop": true,
@@ -261,12 +275,53 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ue4f6"]
-radius = 22.5347
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecnb3"]
+atlas = ExtResource("5_h4i3v")
+region = Rect2(0, 0, 256, 128)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncsq"]
-radius = 14.7059
-height = 205.882
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuxc0"]
+atlas = ExtResource("8_l4ti8")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0etnh"]
+atlas = ExtResource("8_l4ti8")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht7xv"]
+atlas = ExtResource("8_l4ti8")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liog7"]
+atlas = ExtResource("8_l4ti8")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3kxg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecnb3")
+}],
+"loop": false,
+"name": &"grapple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuxc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0etnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht7xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liog7")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 24.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycsv8"]
 atlas = ExtResource("7_xc8qs")
@@ -302,6 +357,17 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p46kc"]
+radius = 32.0
+height = 160.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ue4f6"]
+radius = 22.5347
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncsq"]
+radius = 14.7059
+height = 205.882
+
 [node name="Thorne" type="CharacterBody2D" groups=["thorne"]]
 collision_layer = 2
 collision_mask = 5
@@ -310,7 +376,8 @@ script = ExtResource("1_nqucs")
 [node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ws2nl")
-animation = &"jump noarm"
+animation = &"still noarm"
+frame_progress = 0.907374
 offset = Vector2(50, 0)
 
 [node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
@@ -321,32 +388,15 @@ drag_top_margin = 0.6
 editor_draw_drag_margin = true
 script = ExtResource("4_3yb2h")
 
-[node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
-visible = false
-collision_layer = 2
-
-[node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
-position = Vector2(12, -16)
-rotation = 0.0872665
-scale = Vector2(0.8, 0.8)
-shape = SubResource("CircleShape2D_ue4f6")
-
-[node name="bodyhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
-position = Vector2(-1, 30)
-rotation = 0.0872665
-scale = Vector2(0.8, 0.8)
-shape = SubResource("CapsuleShape2D_jncsq")
-
-[node name="body" type="CollisionShape2D" parent="." groups=["thorne"]]
-position = Vector2(-2.4, 28.235)
-scale = Vector2(0.64, 0.64)
-shape = SubResource("CapsuleShape2D_jncsq")
-
-[node name="arm" type="Sprite2D" parent="." groups=["thorne"]]
-position = Vector2(-2, 9)
-scale = Vector2(0.075, 0.22)
-texture = ExtResource("5_h4i3v")
+[node name="arm" type="AnimatedSprite2D" parent="." groups=["thorne"]]
+position = Vector2(-161, 5)
+scale = Vector2(1.4, 0.75)
+sprite_frames = SubResource("SpriteFrames_o3kxg")
+animation = &"slash"
+frame = 3
+frame_progress = 1.0
 offset = Vector2(128, 0)
+flip_h = true
 script = ExtResource("8_ul54i")
 
 [node name="hand" type="AnimatedSprite2D" parent="arm" groups=["thorne"]]
@@ -363,13 +413,47 @@ position = Vector2(75, 0)
 target_position = Vector2(400, 0)
 collision_mask = 5
 
+[node name="slash" type="Area2D" parent="arm"]
+collision_layer = 2
+collision_mask = 4
+monitoring = false
+
+[node name="slashhb" type="CollisionShape2D" parent="arm/slash"]
+position = Vector2(165, 47)
+shape = SubResource("CapsuleShape2D_p46kc")
+
+[node name="attack" type="Timer" parent="arm"]
+wait_time = 0.3
+one_shot = true
+
+[node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
+visible = false
+collision_layer = 2
+monitoring = false
+
+[node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
+position = Vector2(12, -16)
+rotation = 0.0872665
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_ue4f6")
+
+[node name="bodyhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
+position = Vector2(-1, 30)
+rotation = 0.0872665
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_jncsq")
+
+[node name="body" type="CollisionShape2D" parent="." groups=["thorne"]]
+visible = false
+position = Vector2(-2.4, 28.235)
+scale = Vector2(0.64, 0.64)
+shape = SubResource("CapsuleShape2D_jncsq")
+
 [node name="grounded" type="Node2D" parent="."]
 script = ExtResource("7_2n6m1")
 max_speed = 600
 gravity = 60.0
 jump_force = 1300
-acceleration = 9999
-friction = 99
 wall_leeway = 44
 
 [node name="butler" type="RayCast2D" parent="grounded"]
@@ -381,4 +465,6 @@ script = ExtResource("9_fv08q")
 [node name="wall" type="Node2D" parent="."]
 script = ExtResource("11_0x2o7")
 
+[connection signal="body_entered" from="arm/slash" to="arm" method="attack"]
+[connection signal="timeout" from="arm/attack" to="arm" method="slashed"]
 [connection signal="body_entered" from="hitbox" to="." method="hit"]

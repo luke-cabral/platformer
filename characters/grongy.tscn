@@ -131,6 +131,7 @@ scale = Vector2(0.8, 0.8)
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_m3ciq")
+speed = 222
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

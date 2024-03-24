@@ -2,10 +2,10 @@ extends state
 
 @onready var thorne = $".."
 @onready var thornesee = $"../thornesee"
-@onready var body = $"../body"
 @onready var arm = $"../arm"
 @onready var hand = $"../arm/hand"
-@onready var reach = $"../arm/hand/reach"
+@onready var reach = $"../arm/hand/wrist/reach"
+@onready var body = $"../body"
 @onready var swing = $"../swing"
 @onready var wall = $"../wall"
 @onready var butler = $butler
@@ -15,12 +15,10 @@ extends state
 @export var max_speed: int = 900
 @export var gravity: float = 55
 @export var jump_force: int = 1500
-@export var acceleration: int = 1234
 @export var jump_buffer_time: int = 15
 @export var coyote_time: int = 15
 @export var fall_speed: int = 2000
 @export var pull_speed: int = 2345
-@export var friction = 13
 @export var wall_leeway = 33
 
 var startpoint = Vector2.ZERO
@@ -33,6 +31,8 @@ var loadstate: bool = false
 var pull : bool = false
 var direction := Vector2.RIGHT
 var bypass_movement: bool = false
+var flinch : int = 0
+var flincheast: bool = true 
 
 func _ready():
 	start()
@@ -58,10 +58,7 @@ func _physics_process(delta):
 			stop(swing)
 			
 	if Input.is_action_pressed("ui_right"):
-		if thorne.velocity.x < 0:
-			thorne.velocity.x += acceleration * delta * 2.5
-		else:
-			thorne.velocity.x += acceleration * delta
+		thorne.velocity.x = max_speed
 		thornesee.flip_h = false
 		if thorne.is_on_floor():
 			thornesee.offset.x = 50
@@ -73,10 +70,7 @@ func _physics_process(delta):
 			else:
 				thorne.see.play("run")
 	elif Input.is_action_pressed("ui_left"):
-		if thorne.velocity.x > 0:
-			thorne.velocity.x -= acceleration * delta * 2.5
-		else:
-			thorne.velocity.x -= acceleration * delta
+		thorne.velocity.x = - max_speed
 		if thorne.is_on_floor():
 			thornesee.offset.x = -60
 		else:
@@ -88,11 +82,23 @@ func _physics_process(delta):
 			else:
 				thorne.see.play("run")
 	else:
-		thorne.velocity.x = lerp(thorne.velocity.x, 0.0, friction * delta)
+		thorne.velocity.x = 0
 		if thorne.is_on_floor():
-			thornesee.play("still")
+			if arm.busy:
+				thorne.see.play("still noarm")
+			else:
+				thorne.see.play("still")
+	
 	
 	thorne.velocity.x = clamp(thorne.velocity.x, -max_speed, max_speed)	
+	
+	
+	if flinch > 0:
+		if flincheast:
+			thorne.velocity.x = 1200
+		else:
+			thorne.velocity.x = -1200
+		flinch -= 1
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_counter = jump_buffer_time
@@ -127,14 +133,13 @@ func _physics_process(delta):
 		var collision = thorne.move_and_collide(thorne.velocity * delta)
 		if collision:
 			collision = collision.get_normal()
-			print(collision)
 			if acceptable(collision):
 				arm.wall_angle = collision
 				arm.reset()
 				pull = false
 				body.rotation_degrees = 0
 				stop(wall)
-			
+	
 	if Input.is_action_just_pressed("grapple"):
 		if !arm.shooting and !arm.anchor:
 			var deadzone = 0.5

@@ -1,17 +1,28 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
+@onready var thornesee = $"../thornesee"
+@onready var grounded = $"../grounded"
 @onready var hand = $hand
 @onready var wrist = $hand/wrist
 @onready var reach = $hand/wrist/reach
+@onready var slice = $slash
+@onready var attackt = $attack
+@onready var slashhb = $slash/slashhb
+
 @export var grow_speed = 0.2
 @export var max_length = 2
 @export var searchzone = 10
+
 var shooting = false
 var anchor = false
 var shrink = false
 var busy = false
 var anchor_point = Vector2.ZERO
 var wall_angle = Vector2.RIGHT
+var x = 1
+
+func _ready():
+	slashed()
 
 func _process(delta):
 	if anchor or shooting:
@@ -29,6 +40,19 @@ func _process(delta):
 			hand.rotation = 0
 	elif shooting and !anchor:
 		aim()
+	elif Input.is_action_just_pressed("slash") and !busy:
+		slash()
+		attackt.start()
+	if !attackt.is_stopped():
+		x = x + 1
+		if thornesee.flip_h:
+			flip_h = false
+			position.x = -179
+			slashhb.position.x = 90
+		else:
+			flip_h = true
+			position.x = -161
+			slashhb.position.x = 165
 		
 func reset():
 	anchor = false
@@ -112,5 +136,29 @@ func stretch() -> void:
 func shoulder(target) -> void:
 	var direction = target - global_position
 	rotation = direction.angle()
-
 	
+func slash():
+	busy = true
+	hand.visible = false
+	visible = true
+	scale = Vector2(1.4, 0.75)
+	position.y = 5
+	slashhb.position.y = 47
+	play("slash")
+	slice.monitoring = true
+	
+func slashed():
+	position = Vector2(0, 12)
+	play("grapple")
+	visible = false
+	hand.visible = true
+	flip_h = false
+	busy = false
+	scale = Vector2(.075, 0.3)
+	slice.monitoring = false
+	
+func attack(body):
+	if body.is_in_group("bad"):
+		body.hit()
+		grounded.flinch = 8
+		grounded.flincheast = thornesee.flip_h
