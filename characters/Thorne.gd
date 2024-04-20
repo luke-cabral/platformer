@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var swing = $swing
 
 @export var scroll_speed = 0.4
-@export var size = 0.2
+@export var size = 0.19
 
 var falling = false
 var oldy = 0

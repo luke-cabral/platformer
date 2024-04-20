@@ -1,21 +1,32 @@
 extends CharacterBody2D
 
+@onready var detection_shape = $Detection/DetectionShape
 @onready var sprite = $AnimatedSprite2D
 @export var speed = 500
 @export var health = 3
+@export var gravity = 60
+@export var detection_size: float = 1.0
+var spotted: bool = false
 var east : bool = false
 
 func _ready():
-	sprite.play("attack!")
-
-func _process(delta):
+	detection_shape.scale *= detection_size
 	
-	if east:
-		velocity.x = speed
-		sprite.flip_h = false
+func _physics_process(delta):
+	if spotted:
+		if east:
+			velocity.x = speed
+			sprite.flip_h = false
+		else:
+			velocity.x = -speed
+			sprite.flip_h = true
+			
+	if is_on_floor():
+		velocity.y = 0
 	else:
-		velocity.x = -speed
-		sprite.flip_h = true
+		velocity.y += gravity
+		if velocity.y > 2000:
+			velocity.y = 2000
 	
 	move_and_slide()
 	
@@ -28,7 +39,18 @@ func hit():
 	if health < 1:
 		queue_free()
 
-
 func hitover():
 	sprite.play("attack!")
+	
+func detected(who):
+	print(who, who.get_groups())
+	if who.is_in_group("thorne"):
+		spotted = true
+		sprite.play("attack!")
+	
+func escaped(who):
+	if who.is_in_group("thorne"):
+		spotted = false
+		sprite.stop()
+		velocity.x = 0
 	

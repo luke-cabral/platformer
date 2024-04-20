@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wtifdufqtrqw"]
+[gd_scene load_steps=22 format=3 uid="uid://wtifdufqtrqw"]
 
 [ext_resource type="Texture2D" uid="uid://xiex0bkeiy6p" path="res://characters/Spritesheet.png" id="1_7sker"]
 [ext_resource type="Script" path="res://grongy.gd" id="1_m3ciq"]
@@ -126,12 +126,16 @@ animations = [{
 radius = 41.0
 height = 196.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbgae"]
+radius = 562.5
+height = 2352.5
+
 [node name="grongy" type="CharacterBody2D" groups=["bad", "trackx"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_m3ciq")
-speed = 222
+speed = 275
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -143,4 +147,14 @@ flip_h = true
 position = Vector2(10, 21)
 shape = SubResource("CapsuleShape2D_3mjl6")
 
+[node name="Detection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="DetectionShape" type="CollisionShape2D" parent="Detection"]
+position = Vector2(10, 21.25)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lbgae")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="hitover"]
+[connection signal="body_entered" from="Detection" to="." method="detected"]
+[connection signal="body_exited" from="Detection" to="." method="escaped"]

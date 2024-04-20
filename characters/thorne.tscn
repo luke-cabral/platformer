@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bsr4ykxb25vlh"]
+[gd_scene load_steps=60 format=3 uid="uid://bsr4ykxb25vlh"]
 
 [ext_resource type="Script" path="res://characters/Thorne.gd" id="1_nqucs"]
 [ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne run.png" id="2_8hdjs"]
@@ -361,12 +361,9 @@ animations = [{
 radius = 32.0
 height = 160.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ue4f6"]
-radius = 22.5347
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncsq"]
-radius = 14.7059
-height = 205.882
+radius = 13.0
+height = 130.0
 
 [node name="Thorne" type="CharacterBody2D" groups=["thorne"]]
 collision_layer = 2
@@ -374,7 +371,7 @@ collision_mask = 5
 script = ExtResource("1_nqucs")
 
 [node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.19, 0.19)
 sprite_frames = SubResource("SpriteFrames_ws2nl")
 animation = &"still noarm"
 frame_progress = 0.907374
@@ -389,8 +386,9 @@ editor_draw_drag_margin = true
 script = ExtResource("4_3yb2h")
 
 [node name="arm" type="AnimatedSprite2D" parent="." groups=["thorne"]]
+visible = false
 position = Vector2(-161, 5)
-scale = Vector2(1.4, 0.75)
+scale = Vector2(1, 0.75)
 sprite_frames = SubResource("SpriteFrames_o3kxg")
 animation = &"slash"
 frame = 3
@@ -427,26 +425,15 @@ wait_time = 0.3
 one_shot = true
 
 [node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
-visible = false
 collision_layer = 2
 monitoring = false
 
-[node name="headhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
-position = Vector2(12, -16)
-rotation = 0.0872665
-scale = Vector2(0.8, 0.8)
-shape = SubResource("CircleShape2D_ue4f6")
-
 [node name="bodyhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
-position = Vector2(-1, 30)
-rotation = 0.0872665
-scale = Vector2(0.8, 0.8)
+position = Vector2(0, 25)
 shape = SubResource("CapsuleShape2D_jncsq")
 
 [node name="body" type="CollisionShape2D" parent="." groups=["thorne"]]
-visible = false
-position = Vector2(-2.4, 28.235)
-scale = Vector2(0.64, 0.64)
+position = Vector2(0, 25)
 shape = SubResource("CapsuleShape2D_jncsq")
 
 [node name="grounded" type="Node2D" parent="."]

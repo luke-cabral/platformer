@@ -141,7 +141,7 @@ func slash():
 	busy = true
 	hand.visible = false
 	visible = true
-	scale = Vector2(1.4, 0.75)
+	scale = Vector2(1.3, 0.61)
 	position.y = 5
 	slashhb.position.y = 47
 	play("slash")
@@ -154,7 +154,7 @@ func slashed():
 	hand.visible = true
 	flip_h = false
 	busy = false
-	scale = Vector2(.075, 0.3)
+	scale = Vector2(.075, 0.29)
 	slice.monitoring = false
 	
 func attack(body):
