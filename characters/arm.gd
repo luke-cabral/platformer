@@ -1,5 +1,6 @@
 extends AnimatedSprite2D
 
+@onready var thorne = $".."
 @onready var thornesee = $"../thornesee"
 @onready var grounded = $"../grounded"
 @onready var hand = $hand
@@ -160,5 +161,5 @@ func slashed():
 func attack(body):
 	if body.is_in_group("bad"):
 		body.hit()
-		grounded.flinch = 8
-		grounded.flincheast = thornesee.flip_h
+		thorne.velocity.y -= 400
+		grounded.flinch = 4

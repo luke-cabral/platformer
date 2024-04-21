@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var thornesee = $thornesee
+@onready var grounded = $grounded
 @onready var see = $thornesee
 @onready var cam = $Cam
 @onready var swing = $swing
@@ -37,6 +39,8 @@ func _process(delta):
 func hit(body):
 	if body.is_in_group("bad"):
 		damaged()
+		velocity.y -= 500
+		grounded.flinch = 12
 	elif body.is_in_group("wall"):
 		swing.flip()
 		

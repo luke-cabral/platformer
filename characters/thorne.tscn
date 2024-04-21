@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bsr4ykxb25vlh"]
+[gd_scene load_steps=61 format=3 uid="uid://bsr4ykxb25vlh"]
 
 [ext_resource type="Script" path="res://characters/Thorne.gd" id="1_nqucs"]
 [ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne run.png" id="2_8hdjs"]
@@ -361,6 +361,10 @@ animations = [{
 radius = 32.0
 height = 160.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgf6h"]
+radius = 14.0
+height = 132.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncsq"]
 radius = 13.0
 height = 130.0
@@ -426,11 +430,11 @@ one_shot = true
 
 [node name="hitbox" type="Area2D" parent="." groups=["thorne"]]
 collision_layer = 2
-monitoring = false
+collision_mask = 5
 
 [node name="bodyhb" type="CollisionShape2D" parent="hitbox" groups=["thorne"]]
 position = Vector2(0, 25)
-shape = SubResource("CapsuleShape2D_jncsq")
+shape = SubResource("CapsuleShape2D_wgf6h")
 
 [node name="body" type="CollisionShape2D" parent="." groups=["thorne"]]
 position = Vector2(0, 25)
@@ -454,4 +458,5 @@ script = ExtResource("11_0x2o7")
 
 [connection signal="body_entered" from="arm/slash" to="arm" method="attack"]
 [connection signal="timeout" from="arm/attack" to="arm" method="slashed"]
+[connection signal="area_entered" from="hitbox" to="." method="hit"]
 [connection signal="body_entered" from="hitbox" to="." method="hit"]

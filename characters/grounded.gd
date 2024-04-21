@@ -94,7 +94,7 @@ func _physics_process(delta):
 	
 	
 	if flinch > 0:
-		if flincheast:
+		if thornesee.flip_h:
 			thorne.velocity.x = 1200
 		else:
 			thorne.velocity.x = -1200

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var health = 3
 @export var gravity = 60
 @export var detection_size: float = 1.0
+var flinch = 0
 var spotted: bool = false
 var east : bool = false
 
@@ -21,12 +22,19 @@ func _physics_process(delta):
 			velocity.x = -speed
 			sprite.flip_h = true
 			
-	if is_on_floor():
+	if is_on_floor() and flinch == 0:
 		velocity.y = 0
 	else:
 		velocity.y += gravity
 		if velocity.y > 2000:
 			velocity.y = 2000
+			
+	if flinch > 0:
+		if sprite.flip_h:
+			velocity.x = 1200
+		else:
+			velocity.x = -1200
+		flinch -= 1
 	
 	move_and_slide()
 	
@@ -34,6 +42,8 @@ func navigate(thornex):
 	east = (thornex - global_position.x) > 0
 	
 func hit():
+	velocity.y = -800
+	flinch = 8
 	sprite.play("hit")
 	health -= 1
 	if health < 1:
@@ -53,4 +63,5 @@ func escaped(who):
 		spotted = false
 		sprite.stop()
 		velocity.x = 0
+
 	

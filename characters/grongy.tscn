@@ -143,7 +143,7 @@ sprite_frames = SubResource("SpriteFrames_iw0dh")
 animation = &"hit"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bad"]]
 position = Vector2(10, 21)
 shape = SubResource("CapsuleShape2D_3mjl6")
 
