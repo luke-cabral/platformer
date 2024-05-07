@@ -21,6 +21,8 @@ func _physics_process(delta):
 		else:
 			velocity.x = -speed
 			sprite.flip_h = true
+	else:
+		velocity.x = 0
 			
 	if is_on_floor() and flinch == 0:
 		velocity.y = 0
@@ -30,10 +32,9 @@ func _physics_process(delta):
 			velocity.y = 2000
 			
 	if flinch > 0:
-		if sprite.flip_h:
-			velocity.x = 1200
-		else:
-			velocity.x = -1200
+		velocity.x = flinch * 100
+		if !sprite.flip_h:
+			velocity.x *= -1
 		flinch -= 1
 	
 	move_and_slide()
@@ -43,7 +44,7 @@ func navigate(thornex):
 	
 func hit():
 	velocity.y = -800
-	flinch = 8
+	flinch = 15
 	sprite.play("hit")
 	health -= 1
 	if health < 1:
@@ -62,6 +63,5 @@ func escaped(who):
 	if who.is_in_group("thorne"):
 		spotted = false
 		sprite.stop()
-		velocity.x = 0
 
 	
