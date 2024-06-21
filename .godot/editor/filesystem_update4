@@ -1,0 +1,9 @@
+res://characters/swing.gd
+res://characters/thorne.tscn
+res://characters/grounded.gd
+res://paralax/visuals.gdshader
+res://blur.gdshader
+res://main.tscn
+res://characters/grongy.tscn
+res://levels/1/level1.tscn
+res://levels/sleazy.tscn
