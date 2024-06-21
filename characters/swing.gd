@@ -9,6 +9,7 @@ extends state
 @export var max_swing_speed: float = 5000.0
 @export var acceleration: float = 2700.0
 @export var deceleration: float = 2800.0
+@export var speedup: float = 1.15
 var arc: float = 256.0
 var swing_speed: float = 0
 var distance: float = arc
@@ -43,7 +44,7 @@ func _physics_process(delta: float) -> void:
 			swing_speed = thorne.velocity.length() + acceleration * delta * 2.5
 			swing_direction = swing_direction.rotated(PI)
 
-	thorne.velocity = swing_direction.normalized() * swing_speed
+	thorne.velocity = swing_direction.normalized() * swing_speed * speedup
 	
 	thorne.move_and_slide()
 	
