@@ -14,11 +14,11 @@ config/name="Hobby"
 run/main_scene="res://levels/1/level1.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0.717647, 0.741176, 1)
-config/icon="res://icon.svg"
 
 [autoload]
 
-SceneMaster="*res://scene_master.gd"
+SceneMaster="*res://master/scene_master.gd"
+Global="*res://master/global.gd"
 
 [display]
 

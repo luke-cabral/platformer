@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://paralax/visuals.gdshader" id="1_7r8i5"]
 [ext_resource type="Texture2D" uid="uid://bhw75le2tl84w" path="res://paralax/blur.png" id="2_nxjrh"]
 [ext_resource type="Script" path="res://paralax/0.gd" id="3_7s4uc"]
-[ext_resource type="PackedScene" uid="uid://bsr4ykxb25vlh" path="res://characters/thorne.tscn" id="4_ogukd"]
+[ext_resource type="PackedScene" uid="uid://bsr4ykxb25vlh" path="res://characters/thorne/thorne.tscn" id="4_ogukd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pj7vt"]
 shader = ExtResource("1_7r8i5")
