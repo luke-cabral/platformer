@@ -9,6 +9,7 @@ extends CharacterBody2D
 var flinch = 0
 var spotted: bool = false
 var east : bool = false
+signal success()
 
 func _ready():
 	detection_shape.scale *= detection_size
@@ -48,6 +49,7 @@ func hit():
 	sprite.play("hit")
 	health -= 1
 	if health < 1:
+		success.emit()
 		queue_free()
 
 func hitover():

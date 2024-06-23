@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://6o3je7lt5nen"]
+[gd_scene load_steps=22 format=3 uid="uid://6o3je7lt5nen"]
 
 [ext_resource type="PackedScene" uid="uid://bs77t3v3hwkgl" path="res://paralax/visuals.tscn" id="1_fi810"]
 [ext_resource type="PackedScene" uid="uid://dm34po5th11bx" path="res://master/tile_map.tscn" id="2_3lyph"]
@@ -19,12 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://bkfof5ha4wp1g" path="res://assets/flowers/flowerr.png" id="15_7omtd"]
 [ext_resource type="Texture2D" uid="uid://c1h5tkn8sayuy" path="res://assets/flowers/flowerb.png" id="16_fuw80"]
 [ext_resource type="Script" path="res://levels/testing/main-s.gd" id="17_dht0x"]
+[ext_resource type="PackedScene" uid="uid://cqcehgrg0kedf" path="res://master/death_zone.tscn" id="18_iej3b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pj7vt"]
 shader = ExtResource("12_a7svo")
 shader_parameter/lod = 2.0
 
 [node name="main" type="Node2D"]
+script = ExtResource("17_dht0x")
 
 [node name="visuals" parent="." instance=ExtResource("1_fi810")]
 
@@ -136,8 +138,13 @@ position = Vector2(-507, 971)
 [node name="grass8" parent="visuals/0" index="9" instance=ExtResource("5_efchy")]
 position = Vector2(4581, 967)
 
-[node name="main-s" type="Node" parent="visuals/0" index="10"]
-script = ExtResource("17_dht0x")
+[node name="death zone" parent="visuals/0" index="10" instance=ExtResource("18_iej3b")]
+position = Vector2(-694, 4569)
+scale = Vector2(33.3451, 0.998641)
+
+[node name="death zone2" parent="visuals/0" index="11" instance=ExtResource("18_iej3b")]
+position = Vector2(8061, 2113)
+scale = Vector2(19.6676, 1.48242)
 
 [node name="spikybush" parent="visuals/1" index="0" instance=ExtResource("2_vmlv0")]
 position = Vector2(441.455, 955.636)

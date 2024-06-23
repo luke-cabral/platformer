@@ -382,7 +382,6 @@ frame_progress = 0.907374
 offset = Vector2(50, 0)
 
 [node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
-unique_name_in_owner = true
 top_level = true
 position_smoothing_speed = 1.0
 drag_top_margin = 0.6
