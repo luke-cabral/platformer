@@ -1,12 +1,5 @@
-res://levels/testing/main.tscn
+res://levels/1/level1.tscn
+res://levels/1/level1-s.gd
 res://paralax/visuals.gdshader
 res://paralax/blur.gdshader
-res://paralax/0.gd
-res://characters/thorne/thorne.tscn
-res://characters/baddies/grongy/grongy.tscn
-res://levels/1/level1.tscn
-res://levels/2/level_2.tscn
-res://levels/testing/scratch.tscn
-res://master/checkpoint.tscn
-res://characters/baddies/grongy/boss.tscn
-res://master/death_zone.tscn
+res://master/scene_master.gd
