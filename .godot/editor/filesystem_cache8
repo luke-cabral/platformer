@@ -1,8 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1719414803
-::res://assets/::1719000844
+::res://::1719447185
+button.gd::GDScript::-1::1719445483::0::1::::<>Area2D<>::
+::res://assets/::1719447154
 bush.png::CompressedTexture2D::5341827870701272655::1719000843::1719000843::1::::<><>::
 bush.tscn::PackedScene::8610572268611060167::1719000843::0::1::::<><>::uid://cidveiaqilwmh::::res://assets/bush.png
+button.png::CompressedTexture2D::5029089854567294114::1719447147::1719447154::1::::<><>::
 grass2.png::CompressedTexture2D::8356537766110233633::1719000843::1719000844::1::::<><>::
 grass2.tscn::PackedScene::652037346446987150::1719000844::0::1::::<><>::uid://drb77riwbntin::::res://assets/grass2.png
 grass3.png::CompressedTexture2D::647827557269658034::1719000844::1719000844::1::::<><>::
@@ -14,6 +16,7 @@ ground.png::CompressedTexture2D::4827883071067521552::1719000844::1719000844::1:
 ground.tscn::PackedScene::1744051193947872471::1719000844::0::1::::<><>::uid://ca1wr8kwphsr5::::res://assets/ground.png
 mossrock.png::CompressedTexture2D::5544206034496390352::1719000844::1719000844::1::::<><>::
 mossrock.tscn::PackedScene::9211816690752057957::1719000844::0::1::::<><>::uid://ck8wi7pqfwfsy::::res://assets/mossrock.png
+button.tscn::PackedScene::4342671519584170532::1719416857::0::1::::<><>::res://button.gd
 rock1.png::CompressedTexture2D::6158198684909104350::1719000844::1719000844::1::::<><>::
 rock.png::CompressedTexture2D::6971518933872377714::1719000844::1719000844::1::::<><>::
 rock.tscn::PackedScene::6971019856002490740::1719000844::0::1::::<><>::uid://c6lb5somhlvkc::::res://assets/rock.png
@@ -34,25 +37,25 @@ flowerw.png::CompressedTexture2D::1570009874773706016::1719000843::1719000843::1
 fowerw.tscn::PackedScene::5748247117163431431::1719000843::0::1::::<><>::uid://wmr3likjgetk::::res://assets/flowers/flowerw.png
 ::res://backup/::1719000844
 spikybush2.png::CompressedTexture2D::6867367338242500969::1719000844::1719000844::1::::<><>::
-::res://characters/::1719367654
-::res://characters/baddies/::1719367654
-::res://characters/baddies/grongy/::1719367654
-boss.tscn::PackedScene::541519764757543170::1719367653::0::1::::<><>::res://characters/baddies/grongy/grongy.gd<>uid://xiex0bkeiy6p::::res://characters/baddies/grongy/Spritesheet.png<>uid://uaeswaynlb8x::::res://characters/baddies/grongy/grongpain.png
+::res://characters/::1719415769
+::res://characters/baddies/::1719415769
+::res://characters/baddies/grongy/::1719415769
+boss.tscn::PackedScene::541519764757543170::1719415768::0::1::::<><>::res://characters/baddies/grongy/grongy.gd<>uid://xiex0bkeiy6p::::res://characters/baddies/grongy/Spritesheet.png<>uid://uaeswaynlb8x::::res://characters/baddies/grongy/grongpain.png
 grongpain.png::CompressedTexture2D::1404053041643962021::1719000845::1719068759::1::::<><>::
 grongy.gd::GDScript::-1::1719330171::0::1::::<>CharacterBody2D<>::
 grongy.png::CompressedTexture2D::9146677036110839068::1719000845::1719068759::1::::<><>::
-grongy.tscn::PackedScene::1583872590990968626::1719367642::0::1::::<><>::uid://xiex0bkeiy6p::::res://characters/baddies/grongy/Spritesheet.png<>res://characters/baddies/grongy/grongy.gd<>uid://uaeswaynlb8x::::res://characters/baddies/grongy/grongpain.png
+grongy.tscn::PackedScene::1583872590990968626::1719415752::0::1::::<><>::uid://xiex0bkeiy6p::::res://characters/baddies/grongy/Spritesheet.png<>res://characters/baddies/grongy/grongy.gd<>uid://uaeswaynlb8x::::res://characters/baddies/grongy/grongpain.png
 Spritesheet.png::CompressedTexture2D::1631143682026702349::1719000844::1719068759::1::::<><>::
 ::res://characters/misc/::1719068711
 player walk.png::CompressedTexture2D::2239520274366284863::1719000845::1719068711::1::::<><>::
 Player.gd::GDScript::-1::1719000844::0::1::::<>CharacterBody2D<>::
 player.png::CompressedTexture2D::1897690005085684612::1719000845::1719068710::1::::<><>::
 player.tscn::PackedScene::770219122427179256::1719068709::0::1::::<><>::res://characters/misc/Player.gd<>uid://2bixa03h4ins::::res://characters/misc/player.png<>uid://653to56dhoux::::res://characters/misc/player walk.png
-::res://characters/thorne/::1719367637
+::res://characters/thorne/::1719415748
 arm.gd::GDScript::-1::1719000845::0::1::::<>AnimatedSprite2D<>::
 arm.png::CompressedTexture2D::2375773995962603761::1719000845::1719068628::1::::<><>::
 armt.png::CompressedTexture2D::1526787755641588657::1719000845::1719068628::1::::<><>::
-grounded.gd::GDScript::-1::1719066790::0::1::::<>state<>::
+grounded.gd::GDScript::-1::1719415642::0::1::::<>state<>::
 hand.png::CompressedTexture2D::1875278863840075813::1719000845::1719068628::1::::<><>::
 shoulder.gd::GDScript::-1::1719000845::0::1::::<>Node2D<>::
 slash.png::CompressedTexture2D::4679569411347299820::1719000845::1719068632::1::::<><>::
@@ -63,36 +66,38 @@ thorn.png::CompressedTexture2D::1856773139399625131::1719000845::1719068464::1::
 thorne pirate.png::CompressedTexture2D::7384693201084534965::1719000845::1719068468::1::::<><>::
 thorne run.png::CompressedTexture2D::8652371756300834278::1719000846::1719068468::1::::<><>::
 Thorne.gd::GDScript::-1::1719000844::0::1::::<>CharacterBody2D<>::
-thorne.tscn::PackedScene::3686718503687368401::1719367637::0::1::::<><>::res://characters/thorne/Thorne.gd<>uid://dvjjkfkcfaqaw::::res://characters/thorne/thorne run.png<>uid://ddhg22y10e8q8::::res://characters/thorne/thorne pirate.png<>uid://ca1a3k117lkts::::res://characters/thorne/thorn armeless.png<>uid://bx3itsl6grk5v::::res://characters/thorne/thornewall.png<>res://master/Camera2D.gd<>uid://v0t8a10v3wlt::::res://characters/thorne/armt.png<>uid://b7w23beub5u2g::::res://characters/thorne/slash.png<>res://characters/thorne/arm.gd<>uid://1yntlwjjd0wn::::res://characters/thorne/hand.png<>res://characters/thorne/grounded.gd<>res://characters/thorne/swing.gd<>res://characters/thorne/wall.gd
+thorne.tscn::PackedScene::3686718503687368401::1719415748::0::1::::<><>::res://characters/thorne/Thorne.gd<>uid://dvjjkfkcfaqaw::::res://characters/thorne/thorne run.png<>uid://ddhg22y10e8q8::::res://characters/thorne/thorne pirate.png<>uid://ca1a3k117lkts::::res://characters/thorne/thorn armeless.png<>uid://bx3itsl6grk5v::::res://characters/thorne/thornewall.png<>res://master/Camera2D.gd<>uid://v0t8a10v3wlt::::res://characters/thorne/armt.png<>uid://b7w23beub5u2g::::res://characters/thorne/slash.png<>res://characters/thorne/arm.gd<>uid://1yntlwjjd0wn::::res://characters/thorne/hand.png<>res://characters/thorne/grounded.gd<>res://characters/thorne/swing.gd<>res://characters/thorne/wall.gd
 thornewall.png::CompressedTexture2D::4059087294338192449::1719000846::1719068463::1::::<><>::
 wall.gd::GDScript::-1::1719000846::0::1::::<>state<>::
-::res://levels/::1719368915
-::res://levels/1/::1719368915
-level1-s.gd::GDScript::-1::1719367638::0::1::::<>Node2D<>::
-level1.tscn::PackedScene::5289684245782921813::1719368915::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>res://levels/1/level1-s.gd<>uid://dm34po5th11bx::::res://master/tile_map.tscn<>uid://t05imclyvc4v::::res://levels/1/level1a.png<>uid://y4br6ykbbieb::::res://levels/1/level1c.png<>uid://wtifdufqtrqw::::res://characters/baddies/grongy/grongy.tscn<>uid://g82h3m130ns6::::res://master/checkpoint.tscn<>uid://hyk0svmjd0qw::::res://characters/baddies/grongy/boss.tscn<>uid://cwonxq3mf6vnw::::res://levels/1/level1b.png<>uid://cqcehgrg0kedf::::res://master/death_zone.tscn
+::res://interactive/::1719447185
+::res://levels/::1719416870
+::res://levels/1/::1719415757
+level1-s.gd::GDScript::-1::1719414875::0::1::::<>Node2D<>::
+level1.tscn::PackedScene::5289684245782921813::1719415757::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>res://levels/1/level1-s.gd<>uid://dm34po5th11bx::::res://master/tile_map.tscn<>uid://t05imclyvc4v::::res://levels/1/level1a.png<>uid://y4br6ykbbieb::::res://levels/1/level1c.png<>uid://wtifdufqtrqw::::res://characters/baddies/grongy/grongy.tscn<>uid://g82h3m130ns6::::res://master/checkpoint.tscn<>uid://hyk0svmjd0qw::::res://characters/baddies/grongy/boss.tscn<>uid://cwonxq3mf6vnw::::res://levels/1/level1b.png<>uid://cqcehgrg0kedf::::res://master/death_zone.tscn
 level1a.png::CompressedTexture2D::1387033903010843775::1719000846::1719000846::1::::<><>::
 level1b.png::CompressedTexture2D::6346728494326803948::1719000846::1719000846::1::::<><>::
 level1c.png::CompressedTexture2D::1744491943424560129::1717613069::1719001682::1::::<><>::
-::res://levels/2/::1719367648
-level_2.tscn::PackedScene::748388477006502511::1719367648::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>uid://dm34po5th11bx::::res://master/tile_map.tscn
-::res://levels/testing/::1719367650
+::res://levels/2/::1719416870
+level_2.tscn::PackedScene::748388477006502511::1719416870::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>res://levels/2/level2-s.gd<>uid://dm34po5th11bx::::res://master/tile_map.tscn<>uid://cqcehgrg0kedf::::res://master/death_zone.tscn
+level2-s.gd::GDScript::-1::1719415642::0::1::::<>Node2D<>::
+::res://levels/testing/::1719415763
 levelg.tscn::PackedScene::730852336211673762::1719068983::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>uid://dm34po5th11bx::::res://master/tile_map.tscn
 main-s.gd::GDScript::-1::1719066793::0::1::::<>Node<>::
-main.tscn::PackedScene::2206471849331962057::1719367639::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>uid://dm34po5th11bx::::res://master/tile_map.tscn<>uid://jijkqcl1m3dv::::res://assets/spikybush.tscn<>uid://duxa4qse66u5t::::res://assets/bush.tscn<>uid://c543180r2gsnl::::res://assets/tree.tscn<>uid://wtifdufqtrqw::::res://characters/baddies/grongy/grongy.tscn<>uid://cidveiaqilwmh::::res://assets/bush.png<>uid://jj37vtih7gu5::::res://assets/grass2.tscn<>uid://denm146eyes3o::::res://assets/flowers/flowerb.tscn<>uid://dv3p7nuj8fex5::::res://assets/spikybush2.png<>uid://cn5q14pvx3utb::::res://assets/flowers/fowerw.tscn<>uid://d4ijjl66cistx::::res://assets/mossrock.tscn<>uid://lolvp5ctucex::::res://assets/flowers/floperp.tscn<>res://paralax/visuals.gdshader<>uid://bhw75le2tl84w::::res://paralax/blur.png<>uid://b8jh2q4tmmltx::::res://assets/rocky.tscn<>uid://bkfof5ha4wp1g::::res://assets/flowers/flowerr.png<>uid://c1h5tkn8sayuy::::res://assets/flowers/flowerb.png<>res://levels/testing/main-s.gd<>uid://cqcehgrg0kedf::::res://master/death_zone.tscn
-scratch.tscn::PackedScene::4226679379209344256::1719367649::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>uid://c543180r2gsnl::::res://assets/tree.tscn<>uid://duxa4qse66u5t::::res://assets/bush.tscn<>uid://b8jh2q4tmmltx::::res://assets/rocky.tscn<>uid://jijkqcl1m3dv::::res://assets/spikybush.tscn<>uid://d4ijjl66cistx::::res://assets/mossrock.tscn<>uid://dm34po5th11bx::::res://master/tile_map.tscn<>uid://bsr4ykxb25vlh::::res://characters/thorne/thorne.tscn<>uid://wtifdufqtrqw::::res://characters/baddies/grongy/grongy.tscn<>uid://dah6yifgehi4n::::res://assets/grassy.tscn<>uid://lolvp5ctucex::::res://assets/flowers/floperp.tscn<>uid://cn5q14pvx3utb::::res://assets/flowers/fowerw.tscn<>uid://denm146eyes3o::::res://assets/flowers/flowerb.tscn
-::res://master/::1719367656
+main.tscn::PackedScene::2206471849331962057::1719415750::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>uid://dm34po5th11bx::::res://master/tile_map.tscn<>uid://jijkqcl1m3dv::::res://assets/spikybush.tscn<>uid://duxa4qse66u5t::::res://assets/bush.tscn<>uid://c543180r2gsnl::::res://assets/tree.tscn<>uid://wtifdufqtrqw::::res://characters/baddies/grongy/grongy.tscn<>uid://cidveiaqilwmh::::res://assets/bush.png<>uid://jj37vtih7gu5::::res://assets/grass2.tscn<>uid://denm146eyes3o::::res://assets/flowers/flowerb.tscn<>uid://dv3p7nuj8fex5::::res://assets/spikybush2.png<>uid://cn5q14pvx3utb::::res://assets/flowers/fowerw.tscn<>uid://d4ijjl66cistx::::res://assets/mossrock.tscn<>uid://lolvp5ctucex::::res://assets/flowers/floperp.tscn<>res://paralax/visuals.gdshader<>uid://bhw75le2tl84w::::res://paralax/blur.png<>uid://b8jh2q4tmmltx::::res://assets/rocky.tscn<>uid://bkfof5ha4wp1g::::res://assets/flowers/flowerr.png<>uid://c1h5tkn8sayuy::::res://assets/flowers/flowerb.png<>res://levels/testing/main-s.gd<>uid://cqcehgrg0kedf::::res://master/death_zone.tscn
+scratch.tscn::PackedScene::4226679379209344256::1719415763::0::1::::<><>::uid://bs77t3v3hwkgl::::res://paralax/visuals.tscn<>uid://c543180r2gsnl::::res://assets/tree.tscn<>uid://duxa4qse66u5t::::res://assets/bush.tscn<>uid://b8jh2q4tmmltx::::res://assets/rocky.tscn<>uid://jijkqcl1m3dv::::res://assets/spikybush.tscn<>uid://d4ijjl66cistx::::res://assets/mossrock.tscn<>uid://dm34po5th11bx::::res://master/tile_map.tscn<>uid://bsr4ykxb25vlh::::res://characters/thorne/thorne.tscn<>uid://wtifdufqtrqw::::res://characters/baddies/grongy/grongy.tscn<>uid://dah6yifgehi4n::::res://assets/grassy.tscn<>uid://lolvp5ctucex::::res://assets/flowers/floperp.tscn<>uid://cn5q14pvx3utb::::res://assets/flowers/fowerw.tscn<>uid://denm146eyes3o::::res://assets/flowers/flowerb.tscn
+::res://master/::1719415771
 Camera2D.gd::GDScript::-1::1719000844::0::1::::<>Camera2D<>::
 Checkpoint.gd::GDScript::-1::1719090715::0::1::::<>Area2D<>::
-checkpoint.tscn::PackedScene::490910877485389439::1719367651::0::1::::<><>::res://master/Checkpoint.gd
+checkpoint.tscn::PackedScene::490910877485389439::1719415765::0::1::::<><>::res://master/Checkpoint.gd
 death zone.gd::GDScript::-1::1719091497::0::1::::<>Area2D<>::
-death_zone.tscn::PackedScene::5900247331339434587::1719367656::0::1::::<><>::res://master/death zone.gd
+death_zone.tscn::PackedScene::5900247331339434587::1719415771::0::1::::<><>::res://master/death zone.gd
 global.gd::GDScript::-1::1719016178::0::1::::<>Node<>::
-scene_master.gd::GDScript::-1::1719264218::0::1::::<>Node<>::
+scene_master.gd::GDScript::-1::1719414859::0::1::::<>Node<>::
 state.gd::GDScript::-1::1719000847::0::1::::state<>Node2D<>::
 tile_map.tscn::PackedScene::8061119114092880321::1719000844::0::1::::<><>::uid://c6lb5somhlvkc::::res://assets/rock.png
-::res://paralax/::1719368921
+::res://paralax/::1719416872
 0.gd::GDScript::-1::1719102306::0::1::::<>CanvasLayer<>::
-blur.gdshader::Shader::-1::1719368920::0::1::::<><>::
+blur.gdshader::Shader::-1::1719416871::0::1::::<><>::
 blur.png::CompressedTexture2D::2925156002523004124::1719000847::1719000847::1::::<><>::
-visuals.gdshader::Shader::-1::1719368921::0::1::::<><>::
+visuals.gdshader::Shader::-1::1719416872::0::1::::<><>::
 visuals.tscn::PackedScene::3717858335537436127::1719068442::0::1::::<><>::res://paralax/visuals.gdshader<>uid://bhw75le2tl84w::::res://paralax/blur.png<>res://paralax/0.gd<>uid://bsr4ykxb25vlh::::res://characters/thorne/thorne.tscn

@@ -1,16 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://kwr34kgypu4n"]
+[gd_scene load_steps=6 format=3 uid="uid://kwr34kgypu4n"]
 
 [ext_resource type="PackedScene" uid="uid://bs77t3v3hwkgl" path="res://paralax/visuals.tscn" id="1_7lpov"]
+[ext_resource type="Script" path="res://levels/2/level2-s.gd" id="1_owiiv"]
 [ext_resource type="PackedScene" uid="uid://dm34po5th11bx" path="res://master/tile_map.tscn" id="2_fkqac"]
+[ext_resource type="PackedScene" uid="uid://cqcehgrg0kedf" path="res://master/death_zone.tscn" id="4_w7ejo"]
+[ext_resource type="PackedScene" uid="uid://b24vfvjb417qe" path="res://interactive/button.tscn" id="5_qhm24"]
 
 [node name="level2" type="Node2D"]
+script = ExtResource("1_owiiv")
 
 [node name="visuals" parent="." instance=ExtResource("1_7lpov")]
+
+[node name="blur" parent="visuals/-3" index="0"]
+position = Vector2(835.714, -171.429)
 
 [node name="0" parent="visuals" index="3"]
 visible = true
 
 [node name="TileMap" parent="visuals/0" index="1" instance=ExtResource("2_fkqac")]
-layer_0/tile_data = PackedInt32Array(1048572, 0, 0, 1048573, 0, 0, 1048574, 0, 0, 1048575, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 1048571, 0, 0, 1048570, 0, 0, 1048569, 0, 0, 1048568, 0, 0, 1048567, 0, 0, 1048566, 0, 0, 1048565, 0, 0, 1048564, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 1048563, 0, 0, 1048562, 0, 0, 1048561, 0, 0, 1048560, 0, 0, 1048559, 0, 0, 1048558, 0, 0, 1048557, 0, 0, 1048556, 0, 0, 1048555, 0, 0, 1048554, 0, 0)
+layer_0/tile_data = PackedInt32Array(1048572, 0, 0, 1048573, 0, 0, 1048574, 0, 0, 1048575, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 1048571, 0, 0, 1048570, 0, 0, 1048569, 0, 0, 1048568, 0, 0, 1048567, 0, 0, 1048566, 0, 0, 1048565, 0, 0, 1048564, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 1048563, 0, 0, 1048562, 0, 0, 1048561, 0, 0, 1048560, 0, 0, 1048559, 0, 0, 1048558, 0, 0, 1048557, 0, 0, 1048556, 0, 0, 1048555, 0, 0, 1048554, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0, -65504, 0, 0, -65503, 0, 0, -65502, 0, 0, -65501, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 0, 0, -65494, 0, 0, -65493, 0, 0, -65492, 0, 0, -65491, 0, 0, -65490, 0, 0, -65489, 0, 0, -65488, 0, 0, -65487, 0, 0, -65486, 0, 0, -65485, 0, 0, -65484, 0, 0, -65483, 0, 0, -65482, 0, 0, -65481, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 983078, 0, 0, 983079, 0, 0, -65480, 0, 0, -65479, 0, 0, -65478, 0, 0, -65477, 0, 0, -65476, 0, 0, -65475, 0, 0, -65474, 0, 0, -65473, 0, 0, -65472, 0, 0, -65471, 0, 0, -65470, 0, 0, -65469, 0, 0, -65468, 0, 0, -65467, 0, 0, -65466, 0, 0, -65465, 0, 0, -65464, 0, 0, -65463, 0, 0, -65462, 0, 0, -65461, 0, 0, -65460, 0, 0, -65459, 0, 0, -65458, 0, 0)
+
+[node name="death zone" parent="visuals/0" index="2" instance=ExtResource("4_w7ejo")]
+position = Vector2(215, 1482)
+scale = Vector2(80.3706, 1.24173)
+
+[node name="button" parent="visuals/0" index="3" instance=ExtResource("5_qhm24")]
+position = Vector2(453, 17)
+
+[node name="button2" parent="visuals/0" index="4" instance=ExtResource("5_qhm24")]
+position = Vector2(1040, 16)
+
+[node name="button3" parent="visuals/0" index="5" instance=ExtResource("5_qhm24")]
+position = Vector2(743, 16)
+
+[node name="button4" parent="visuals/0" index="6" instance=ExtResource("5_qhm24")]
+position = Vector2(1198, 474)
+ground = true
+
+[node name="button6" parent="visuals/0" index="7" instance=ExtResource("5_qhm24")]
+position = Vector2(681, 289)
+
+[node name="button5" parent="visuals/0" index="8" instance=ExtResource("5_qhm24")]
+position = Vector2(1365, 15)
+
+[node name="button7" parent="visuals/0" index="9" instance=ExtResource("5_qhm24")]
+position = Vector2(846, 300)
 
 [editable path="visuals"]

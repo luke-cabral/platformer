@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bsr4ykxb25vlh"]
+[gd_scene load_steps=62 format=3 uid="uid://bsr4ykxb25vlh"]
 
 [ext_resource type="Script" path="res://characters/thorne/Thorne.gd" id="1_pvp80"]
 [ext_resource type="Texture2D" uid="uid://dvjjkfkcfaqaw" path="res://characters/thorne/thorne run.png" id="2_yspyp"]
@@ -357,6 +357,10 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i11q8"]
+radius = 25.3333
+height = 106.667
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p46kc"]
 radius = 32.0
 height = 160.0
@@ -389,7 +393,6 @@ editor_draw_drag_margin = true
 script = ExtResource("6_qdtby")
 
 [node name="arm" type="AnimatedSprite2D" parent="." groups=["thorne"]]
-visible = false
 position = Vector2(-161, 5)
 scale = Vector2(1, 0.75)
 sprite_frames = SubResource("SpriteFrames_o3kxg")
@@ -404,8 +407,19 @@ script = ExtResource("9_j2g62")
 position = Vector2(255.5, -0.25)
 scale = Vector2(0.3, 1)
 sprite_frames = SubResource("SpriteFrames_caul5")
-animation = &"punch"
+animation = &"swing"
 offset = Vector2(128, 0)
+
+[node name="handx" type="Area2D" parent="arm/hand"]
+scale = Vector2(1, 1)
+collision_layer = 16
+collision_mask = 5
+
+[node name="handy" type="CollisionShape2D" parent="arm/hand/handx"]
+position = Vector2(11.6667, -1.08333)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_i11q8")
 
 [node name="wrist" type="Node2D" parent="arm/hand"]
 
@@ -415,9 +429,10 @@ target_position = Vector2(400, 0)
 collision_mask = 5
 
 [node name="slash" type="Area2D" parent="arm"]
-collision_layer = 2
+collision_layer = 18
 collision_mask = 4
 monitoring = false
+monitorable = false
 
 [node name="slashhb" type="CollisionShape2D" parent="arm/slash"]
 position = Vector2(165, 47)

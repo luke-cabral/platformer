@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 @onready var thornesee = $"../thornesee"
 @onready var grounded = $"../grounded"
 @onready var hand = $hand
+@onready var handx = $hand/handx
 @onready var wrist = $hand/wrist
 @onready var reach = $hand/wrist/reach
 @onready var slice = $slash
@@ -27,7 +28,10 @@ func _ready():
 
 func _process(delta):
 	if anchor or shooting:
+		handx.monitorable = true
 		busy = true
+	else:
+		handx.monitorable = false
 	
 	if shrink:
 		scale.x -= grow_speed
@@ -147,6 +151,7 @@ func slash():
 	slashhb.position.y = 47
 	play("slash")
 	slice.monitoring = true
+	slice.monitorable = true
 	
 func slashed():
 	position = Vector2(0, 12)
@@ -157,6 +162,7 @@ func slashed():
 	busy = false
 	scale = Vector2(.075, 0.29)
 	slice.monitoring = false
+	slice.monitorable = false
 	
 func attack(body):
 	if body.is_in_group("bad"):

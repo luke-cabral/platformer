@@ -171,7 +171,7 @@ func _physics_process(delta):
 			
 #region anchored and pulling
 	if Input.is_action_just_pressed("pull"):
-		if arm.anchor:
+		if arm.anchor and Global.hook:
 			pull = true
 			direction = Vector2.RIGHT.rotated(arm.rotation)
 			body.rotation_degrees = 0
