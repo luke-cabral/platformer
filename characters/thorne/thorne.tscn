@@ -393,6 +393,7 @@ editor_draw_drag_margin = true
 script = ExtResource("6_qdtby")
 
 [node name="arm" type="AnimatedSprite2D" parent="." groups=["thorne"]]
+visible = false
 position = Vector2(-161, 5)
 scale = Vector2(1, 0.75)
 sprite_frames = SubResource("SpriteFrames_o3kxg")
@@ -411,14 +412,12 @@ animation = &"swing"
 offset = Vector2(128, 0)
 
 [node name="handx" type="Area2D" parent="arm/hand"]
-scale = Vector2(1, 1)
 collision_layer = 16
 collision_mask = 5
 
 [node name="handy" type="CollisionShape2D" parent="arm/hand/handx"]
 position = Vector2(11.6667, -1.08333)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_i11q8")
 
 [node name="wrist" type="Node2D" parent="arm/hand"]

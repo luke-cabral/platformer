@@ -9,7 +9,7 @@ extends state
 @onready var swing = $"../swing"
 @onready var wall = $"../wall"
 @onready var butler = $butler
-@onready var max_stretch = 256 * arm.max_length
+@onready var max_stretch = 256 * arm.max_length + 50
 @onready var ray_space = body.shape.height/150
 
 @export var max_speed: int = 900
