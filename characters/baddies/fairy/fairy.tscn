@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b53hlug2dx1bo"]
+
+[ext_resource type="Texture2D" uid="uid://dea5t4fmpdy7t" path="res://characters/baddies/fairy/fairy.png" id="1_5v5kl"]
+[ext_resource type="Script" path="res://characters/baddies/fairy/fairy.gd" id="1_mb540"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v161h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5v5kl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlgy5"]
+radius = 6.07166
+height = 92.3322
+
+[node name="fairy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 19
+script = ExtResource("1_mb540")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.14, 0.14)
+sprite_frames = SubResource("SpriteFrames_v161h")
+
+[node name="detection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+position = Vector2(1, 3)
+rotation = 1.46608
+shape = SubResource("CapsuleShape2D_tlgy5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
+rotation = 1.46608
+shape = SubResource("CapsuleShape2D_tlgy5")
+
+[connection signal="area_entered" from="detection" to="." method="hit"]

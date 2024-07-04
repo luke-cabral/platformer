@@ -1,10 +1,10 @@
-Sprite2D
 CollisionShape2D
-CharacterBody2D
-Area2D
-Node
 Timer
+Area2D
 AnimatedSprite2D
+CharacterBody2D
+Sprite2D
+Node
 Node2D
 RayCast2D
 state
