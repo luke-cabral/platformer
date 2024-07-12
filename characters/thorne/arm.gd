@@ -10,6 +10,7 @@ extends AnimatedSprite2D
 @onready var slice = $slash
 @onready var attackt = $attack
 @onready var slashhb = $slash/slashhb
+@onready var swing = $"../swing"
 
 @export var grow_speed = 0.2
 @export var max_length = 2
@@ -112,7 +113,6 @@ func knuckle() -> bool:
 func impact():
 	var collider = reach.get_collider()
 	if !collider:
-		aim()
 		return
 		
 	if collider.is_in_group("wall"):
@@ -131,6 +131,8 @@ func impact():
 		anchor = true
 		shooting = false
 		hand.play("swing")
+		swing.update(256 * scale.x)
+		grounded.stop(swing)
 		
 func stretch() -> void:
 	scale.x += grow_speed

@@ -16,4 +16,5 @@ func relax(body):
 func spawn():
 	var new_fairy = fairy_scene.instantiate()
 	zero.add_child(new_fairy)
+	timer.wait_time = randf_range(1.4, 2.25)
 	

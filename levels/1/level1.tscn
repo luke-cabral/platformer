@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chmmldwo705vl"]
+[gd_scene load_steps=14 format=3 uid="uid://chmmldwo705vl"]
 
 [ext_resource type="PackedScene" uid="uid://bs77t3v3hwkgl" path="res://paralax/visuals.tscn" id="1_x4udc"]
 [ext_resource type="Script" path="res://levels/1/level1-s.gd" id="1_yi4o2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://hyk0svmjd0qw" path="res://characters/baddies/grongy/boss.tscn" id="8_2nfou"]
 [ext_resource type="Texture2D" uid="uid://cwonxq3mf6vnw" path="res://levels/1/level1b.png" id="8_o7mrk"]
 [ext_resource type="PackedScene" uid="uid://cqcehgrg0kedf" path="res://master/death_zone.tscn" id="10_2ugk8"]
+[ext_resource type="AudioStream" uid="uid://d2obi1pabex54" path="res://levels/1/beach.wav" id="11_f110m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_voe5a"]
 size = Vector2(791.5, 245)
@@ -150,6 +151,10 @@ visible = false
 
 [node name="darken" parent="visuals/3" index="0"]
 position = Vector2(1757.69, -173.846)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f110m")
+autoplay = true
 
 [connection signal="body_entered" from="visuals/0/water1" to="." method="wet1"]
 [connection signal="body_entered" from="visuals/0/water2" to="." method="wet2"]

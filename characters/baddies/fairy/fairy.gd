@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var thorne = $"../Thorne"
 @export var radius = 1234
-@export var speed = 700
+@export var speed = 800
 
 func _ready():
 	var angle = Vector2(randf_range(-1, 1), randf_range(-1, 0)).normalized()

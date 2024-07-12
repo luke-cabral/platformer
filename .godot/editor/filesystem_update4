@@ -1,19 +1,19 @@
-res://levels/2/level_2.tscn
+res://levels/1/level1.tscn
 res://levels/1/level1-s.gd
 res://paralax/visuals.gdshader
 res://paralax/blur.gdshader
-res://characters/baddies/fairy/fairy.tscn
-res://characters/baddies/fairy/fairy.gd
-res://levels/2/fairy_spawn.gd
-res://master/death zone.gd
 res://characters/thorne/thorne.tscn
 res://levels/testing/main.tscn
 res://characters/baddies/grongy/grongy.tscn
-res://levels/1/level1.tscn
+res://levels/2/level_2.tscn
 res://levels/testing/scratch.tscn
 res://master/checkpoint.tscn
 res://characters/baddies/grongy/boss.tscn
 res://master/death_zone.tscn
 res://interactive/button.tscn
 res://interactive/door.tscn
-res://levels/2/level2-s.gd
+res://characters/baddies/fairy/fairy.tscn
+res://master/sounds.gd
+res://characters/thorne/arm.gd
+res://characters/baddies/fairy/fairy.gd
+res://levels/2/fairy_spawn.gd

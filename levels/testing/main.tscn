@@ -144,7 +144,7 @@ scale = Vector2(33.3451, 0.998641)
 
 [node name="death zone2" parent="visuals/0" index="11" instance=ExtResource("18_iej3b")]
 position = Vector2(8061, 2113)
-scale = Vector2(19.6676, 1.48242)
+scale = Vector2(32.2276, 1.48242)
 
 [node name="spikybush" parent="visuals/1" index="0" instance=ExtResource("2_vmlv0")]
 position = Vector2(441.455, 955.636)
