@@ -80,10 +80,10 @@ func _physics_process(delta):
 	thorne.velocity.x = clamp(thorne.velocity.x, -max_speed, max_speed)	
 	
 	if flinch > 0:
-		if thornesee.flip_h:
-			thorne.velocity.x = 1200
+		if flincheast:
+			thorne.velocity.x = 1500
 		else:
-			thorne.velocity.x = -1200
+			thorne.velocity.x = -1500
 		flinch -= 1
 	
 	if Input.is_action_just_pressed("jump"):

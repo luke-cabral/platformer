@@ -1,11 +1,11 @@
+Timer
+CollisionShape2D
+Area2D
+Sprite2D
+CharacterBody2D
 AudioStreamPlayer
 AudioStreamPlayer2D
-CollisionShape2D
-Timer
-Area2D
 AnimatedSprite2D
-CharacterBody2D
-Sprite2D
 Node
 Node2D
 RayCast2D
