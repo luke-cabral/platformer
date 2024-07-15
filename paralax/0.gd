@@ -32,6 +32,8 @@ func alive():
 	cam.position = spawn
 	thorne.set_process(true)
 	cam.set_process(true)
+	for child in get_tree().get_nodes_in_group("fragile"):
+		child.queue_free()
 	
 func update_spawn(place):
 	spawn = place

@@ -6,7 +6,6 @@ extends Area2D
 var unused: bool = true
 
 func update_spawn(body):
-	print(zero)
 	if unused:
 		zero.spawn = Vector2(position.x + shift, position.y - height)
 		unused = false

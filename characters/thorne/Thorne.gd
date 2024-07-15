@@ -39,7 +39,7 @@ func _process(delta):
 func hit(body):
 	if body.is_in_group("bad"):
 		damaged()
-		velocity.y -= 1000
+		velocity.y = -1200
 		grounded.flincheast = global_position.direction_to(body.global_position).x < 0
 		grounded.flinch = 12
 	elif body.is_in_group("wall"):

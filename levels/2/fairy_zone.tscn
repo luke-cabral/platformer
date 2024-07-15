@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7kfwy6spd7om"]
+
+[ext_resource type="Script" path="res://levels/2/fairy_spawn.gd" id="1_drpc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl0va"]
+size = Vector2(13078, 862)
+
+[node name="fairy_zone" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_drpc6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11943, 403)
+shape = SubResource("RectangleShape2D_wl0va")
+
+[connection signal="body_entered" from="." to="." method="attack"]
+[connection signal="body_exited" from="." to="." method="relax"]

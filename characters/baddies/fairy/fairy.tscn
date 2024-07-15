@@ -19,12 +19,12 @@ radius = 6.07166
 height = 92.3322
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jtxgc"]
-radius = 1200.0
+radius = 1350.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jvdy5"]
-radius = 500.0
+radius = 525.0
 
-[node name="fairy" type="CharacterBody2D" groups=["bad"]]
+[node name="fairy" type="CharacterBody2D" groups=["bad", "fragile"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_mb540")
@@ -40,7 +40,6 @@ rotation = 1.46608
 shape = SubResource("CapsuleShape2D_tlgy5")
 
 [node name="see" type="Area2D" parent="."]
-visible = false
 position = Vector2(-17, 22)
 scale = Vector2(0.3, 0.3)
 collision_layer = 0
@@ -51,7 +50,6 @@ position = Vector2(56.6667, -73.3333)
 shape = SubResource("CircleShape2D_jtxgc")
 
 [node name="chase" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 

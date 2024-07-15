@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var thorne = $"../Thorne"
 @export var radius = 1234
-@export var speed = 800
+@export var speed = 1000
 @export var rspeed = 0.5
 @onready var sprite = $AnimatedSprite2D
 @onready var timer = $Timer
@@ -17,7 +17,7 @@ func _physics_process(delta):
 	var direction = global_position.angle_to_point(thorne.global_position)
 	rotation = lerp_angle(rotation, direction, rspeed)
 	print(rotation)
-	sprite.flip_v = rotation < PI/2 or rotation > -PI / 2
+	sprite.flip_v = rotation > PI/2 or rotation < -PI / 2
 	if !attacking:
 		var angle = position.direction_to(thorne.global_position)
 		velocity = angle * speed

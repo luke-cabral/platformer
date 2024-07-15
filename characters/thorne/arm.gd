@@ -131,8 +131,9 @@ func impact():
 		anchor = true
 		shooting = false
 		hand.play("swing")
-		swing.update(256 * scale.x)
-		grounded.stop(swing)
+		if Global.radian:
+			swing.update(256 * scale.x)
+			grounded.stop(swing)
 		
 func stretch() -> void:
 	scale.x += grow_speed
