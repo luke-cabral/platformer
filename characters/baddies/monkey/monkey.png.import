@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c43usipqgfrgr"
-path="res://.godot/imported/spikybush2.png-86b02b5a999db204021369520ce00ceb.ctex"
+uid="uid://cuxfkn2wf2gob"
+path="res://.godot/imported/monkey.png-54ccfe8f917053f7faa694886ca09bfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backup/spikybush2.png"
-dest_files=["res://.godot/imported/spikybush2.png-86b02b5a999db204021369520ce00ceb.ctex"]
+source_file="res://characters/baddies/monkey/monkey.png"
+dest_files=["res://.godot/imported/monkey.png-54ccfe8f917053f7faa694886ca09bfc.ctex"]
 
 [params]
 

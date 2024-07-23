@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djs2iu8vsr7o4"]
+
+[ext_resource type="Script" path="res://levels/testing/teleport.gd" id="1_daau2"]
+
+[node name="teleport" type="Node2D"]
+script = ExtResource("1_daau2")

@@ -370,20 +370,18 @@ radius = 14.0
 height = 132.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jncsq"]
-radius = 13.0
+radius = 19.0
 height = 130.0
 
 [node name="Thorne" type="CharacterBody2D" groups=["thorne"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 37
 script = ExtResource("1_pvp80")
 
 [node name="thornesee" type="AnimatedSprite2D" parent="." groups=["thorne"]]
 scale = Vector2(0.19, 0.19)
 sprite_frames = SubResource("SpriteFrames_ws2nl")
-animation = &"jump"
-frame = 1
-frame_progress = 1.0
+animation = &"still"
 offset = Vector2(50, 0)
 
 [node name="Cam" type="Camera2D" parent="." groups=["thorne"]]
@@ -452,13 +450,13 @@ position = Vector2(0, 25)
 shape = SubResource("CapsuleShape2D_wgf6h")
 
 [node name="body" type="CollisionShape2D" parent="." groups=["thorne"]]
-position = Vector2(0, 25)
+position = Vector2(-1, 26)
 shape = SubResource("CapsuleShape2D_jncsq")
 
 [node name="grounded" type="Node2D" parent="."]
 script = ExtResource("11_nfg2u")
-max_speed = 600
-gravity = 60.0
+max_speed = 690
+gravity = 65.0
 jump_force = 1300
 wall_leeway = 44
 

@@ -14,15 +14,18 @@ extends AnimatedSprite2D
 
 @export var grow_speed = 0.2
 @export var max_length = 2
-@export var searchzone = 10
+@export var searchzone: int = 10
 
 var shooting = false
 var anchor = false
 var shrink = false
 var busy = false
+var moving_anchor = false
 var anchor_point = Vector2.ZERO
 var wall_angle = Vector2.RIGHT
 var x = 1
+var anchor_to_wall = Vector2(1, 1)
+var wall = 1
 
 func _ready():
 	slashed()
@@ -64,6 +67,7 @@ func reset():
 	anchor = false
 	shooting = false
 	shrink = true
+	moving_anchor = false
 	
 func adjust() -> void:
 	hand.global_position = anchor_point
@@ -103,6 +107,11 @@ func aim():
 		wrist.rotation = 0
 	stretch()
 	
+func _physics_process(delta):
+	if moving_anchor:
+		anchor_point = wall.global_position + anchor_to_wall
+		adjust()
+	
 func knuckle() -> bool:
 	if reach.is_colliding():
 		var distance = reach.get_collision_point().distance_to(reach.global_position)
@@ -128,6 +137,12 @@ func impact():
 	elif collider.is_in_group("wall"):
 		wall_angle = reach.get_collision_normal()
 		anchor_point = hand.global_position
+		if collider.is_in_group("move"):
+			print(anchor_point, collider.global_position)
+			anchor_to_wall = anchor_point - collider.global_position
+			wall = collider
+			moving_anchor = true
+			print(anchor_to_wall)
 		anchor = true
 		shooting = false
 		hand.play("swing")

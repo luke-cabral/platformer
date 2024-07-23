@@ -7,6 +7,7 @@
 radius = 53.3333
 
 [node name="puff" type="CharacterBody2D"]
+visible = false
 position = Vector2(-17, 22)
 scale = Vector2(0.3, 0.3)
 collision_layer = 0
@@ -35,7 +36,7 @@ shape = SubResource("CircleShape2D_bjq2k")
 wait_time = 0.25
 
 [node name="autodeath" type="Timer" parent="."]
-wait_time = 2.25
+wait_time = 1.6
 one_shot = true
 autostart = true
 

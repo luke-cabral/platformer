@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 @onready var thorne = $"../Thorne"
 @export var radius = 1234
-@export var speed = 1000
+@export var speed = 1175
 @export var rspeed = 0.5
 @onready var sprite = $AnimatedSprite2D
 @onready var timer = $Timer
+@onready var puffspot = $puffspot
 var puff = load("res://characters/baddies/fairy/puff.tscn")
 var attacking = false
 
@@ -16,8 +17,11 @@ func _ready():
 func _physics_process(delta):
 	var direction = global_position.angle_to_point(thorne.global_position)
 	rotation = lerp_angle(rotation, direction, rspeed)
-	print(rotation)
 	sprite.flip_v = rotation > PI/2 or rotation < -PI / 2
+	if sprite.flip_v:
+		puffspot.position.y = -30
+	else:
+		puffspot.position.y = 30
 	if !attacking:
 		var angle = position.direction_to(thorne.global_position)
 		velocity = angle * speed
@@ -35,6 +39,7 @@ func seek(body):
 	attacking = false
 
 func new_puff():
+	timer.wait_time = randf_range(1.4, 2.6)
+	timer.start()
 	var new_puff = puff.instantiate()
 	add_child(new_puff)
-	timer.wait_time = randf_range(1.6, 3)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm34po5th11bx"]
+[gd_scene load_steps=6 format=3 uid="uid://dm34po5th11bx"]
 
 [ext_resource type="Texture2D" uid="uid://c6lb5somhlvkc" path="res://assets/rock.png" id="1_jdo5j"]
+[ext_resource type="Texture2D" uid="uid://cgeu62ot8kpjw" path="res://assets/rock2.png" id="2_e1pk1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8w5w"]
 texture = ExtResource("1_jdo5j")
@@ -9,11 +10,25 @@ texture = ExtResource("1_jdo5j")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kh0c5"]
+texture = ExtResource("2_e1pk1")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSet" id="TileSet_desym"]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 32
 sources/0 = SubResource("TileSetAtlasSource_b8w5w")
+sources/1 = SubResource("TileSetAtlasSource_kh0c5")
 
 [node name="TileMap" type="TileMap" groups=["wall"]]
 scale = Vector2(0.25, 0.25)

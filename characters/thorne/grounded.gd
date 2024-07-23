@@ -38,7 +38,11 @@ func _ready():
 	start()
 
 func _physics_process(delta):
-	
+	if thornesee.flip_h:
+		body.position.x = 20
+	else:
+		body.position.x = -1
+		
 	if not thorne.is_on_floor():
 		thorne.velocity.y += gravity
 		coyote_counter -= 1
@@ -81,9 +85,13 @@ func _physics_process(delta):
 	
 	if flinch > 0:
 		if flincheast:
-			thorne.velocity.x = 1500
+			thorne.velocity.x = 2000
 		else:
-			thorne.velocity.x = -1500
+			thorne.velocity.x = -2000
+		if thorne.velocity.y < -850:
+			thorne.velocity.y = -850
+			
+			850
 		flinch -= 1
 	
 	if Input.is_action_just_pressed("jump"):

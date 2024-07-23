@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cywunrjuk4tes"]
+
+[ext_resource type="Script" path="res://levels/2/pixies.gd" id="1_vgoa5"]
+[ext_resource type="Texture2D" uid="uid://boqjc4p3ok0p3" path="res://assets/pixies.png" id="2_wvsg3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8guo5"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tu2dd"]
+radius = 33.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdcwy"]
+radius = 30.1496
+
+[node name="pixies" type="RigidBody2D"]
+collision_mask = 33
+physics_material_override = SubResource("PhysicsMaterial_8guo5")
+script = ExtResource("1_vgoa5")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 8
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tu2dd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wvsg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_qdcwy")
+
+[connection signal="area_entered" from="Area2D" to="." method="crack"]
