@@ -20,15 +20,15 @@ var shooting = false
 var anchor = false
 var shrink = false
 var busy = false
-var moving_anchor = false
 var anchor_point = Vector2.ZERO
 var wall_angle = Vector2.RIGHT
 var x = 1
 var anchor_to_wall = Vector2(1, 1)
-var wall = 1
+var wall
 
 func _ready():
 	slashed()
+	set_physics_process(false)
 
 func _process(delta):
 	if anchor or shooting:
@@ -67,7 +67,7 @@ func reset():
 	anchor = false
 	shooting = false
 	shrink = true
-	moving_anchor = false
+	set_physics_process(false)
 	
 func adjust() -> void:
 	hand.global_position = anchor_point
@@ -108,9 +108,8 @@ func aim():
 	stretch()
 	
 func _physics_process(delta):
-	if moving_anchor:
-		anchor_point = wall.global_position + anchor_to_wall
-		adjust()
+	anchor_point = wall.global_position + anchor_to_wall
+	adjust()
 	
 func knuckle() -> bool:
 	if reach.is_colliding():
@@ -141,7 +140,7 @@ func impact():
 			print(anchor_point, collider.global_position)
 			anchor_to_wall = anchor_point - collider.global_position
 			wall = collider
-			moving_anchor = true
+			set_physics_process(true)
 			print(anchor_to_wall)
 		anchor = true
 		shooting = false

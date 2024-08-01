@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtxcw"]
 size = Vector2(188, 41)
 
-[node name="log" type="CharacterBody2D" groups=["wall"]]
+[node name="log" type="CharacterBody2D" groups=["move", "wall"]]
 collision_mask = 33
 script = ExtResource("1_y3b27")
 
