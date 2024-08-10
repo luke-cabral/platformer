@@ -145,7 +145,7 @@ sprite_frames = SubResource("SpriteFrames_iw0dh")
 animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bad"]]
-position = Vector2(10, 21)
+position = Vector2(-10.6061, 24.2424)
 shape = SubResource("CapsuleShape2D_3mjl6")
 
 [node name="Detection" type="Area2D" parent="."]

@@ -17,6 +17,7 @@ script = ExtResource("1_38exv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_oj3st")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 6)
@@ -28,7 +29,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
-position = Vector2(-7, 6)
+position = Vector2(-2, 11)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ann2v")
 

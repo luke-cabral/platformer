@@ -10,7 +10,7 @@ func _ready():
 
 func attack(body):
 	timer.start()
-	arm.searchzone = 13
+	arm.searchzone = 14
 	
 func relax(body):
 	timer.stop()
@@ -19,5 +19,5 @@ func relax(body):
 func spawn():
 	var new_fairy = fairy_scene.instantiate()
 	zero.add_child(new_fairy)
-	timer.wait_time = randf_range(1.3, 2.75)
+	timer.wait_time = randf_range(1.6, 3.5)
 	

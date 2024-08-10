@@ -184,5 +184,5 @@ func slashed():
 func attack(body):
 	if body.is_in_group("bad"):
 		body.hit()
-		thorne.velocity.y -= 400
-		grounded.flinch = 4
+		thorne.velocity.y -= 555
+		grounded.flinch = 3

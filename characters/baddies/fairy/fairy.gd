@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var thorne = $"../Thorne"
 @export var radius = 1234
-@export var speed = 1175
+@export var speed = 1123
 @export var rspeed = 0.5
 @onready var sprite = $AnimatedSprite2D
 @onready var timer = $Timer

@@ -33,7 +33,7 @@ func _physics_process(delta):
 			velocity.y = 2000
 			
 	if flinch > 0:
-		velocity.x = flinch * 100
+		velocity.x = flinch * 120
 		if !sprite.flip_h:
 			velocity.x *= -1
 		flinch -= 1
@@ -45,7 +45,7 @@ func navigate(thornex):
 	
 func hit():
 	velocity.y = -800
-	flinch = 15
+	flinch = 16
 	sprite.play("hit")
 	health -= 1
 	if health < 1:

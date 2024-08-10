@@ -6,6 +6,7 @@ extends state
 @onready var hand = $"../arm/hand"
 @onready var reach = $"../arm/hand/wrist/reach"
 @onready var body = $"../body"
+@onready var bodyhb = $"../hitbox/bodyhb"
 @onready var swing = $"../swing"
 @onready var wall = $"../wall"
 @onready var butler = $butler
@@ -38,10 +39,12 @@ func _ready():
 	start()
 
 func _physics_process(delta):
-	if thornesee.flip_h:
-		body.position.x = 20
-	else:
-		body.position.x = -1
+	#if thornesee.flip_h:
+		#body.position.x = 20
+		#bodyhb.position.x = 20
+	#else:
+		#body.position.x = -1
+		#bodyhb.position.x = -1
 		
 	if not thorne.is_on_floor():
 		thorne.velocity.y += gravity

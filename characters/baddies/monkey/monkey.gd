@@ -7,18 +7,18 @@ extends CharacterBody2D
 var right: bool = true
 
 func _ready():
-	velocity.x = -speed
+	velocity.y = -speed
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		if right:
-			velocity.x = speed
-			sprite.flip_h = true
+			velocity.y = speed
+			#sprite.flip_h = true
 			right = false
 		else:
-			velocity.x = -speed
-			sprite.flip_h = false
+			velocity.y = -speed
+			#sprite.flip_h = false
 			right = true
 			
 func attack(body):

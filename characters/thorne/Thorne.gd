@@ -39,9 +39,9 @@ func _process(delta):
 func hit(body):
 	if body.is_in_group("bad"):
 		damaged()
-		velocity.y = -800
+		velocity.y = -850
 		grounded.flincheast = global_position.direction_to(body.global_position).x < 0
-		grounded.flinch = 16
+		grounded.flinch = 15
 	elif body.is_in_group("wall"):
 		swing.flip()
 		

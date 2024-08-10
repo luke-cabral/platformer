@@ -9,15 +9,12 @@ var timer = 0.0
 
 func _ready():
 	randomize()
-	start = global_position
 	
 func _physics_process(delta):
 	timer -= delta
 	if timer <= 0:
 		apply_random_impulse()
 		timer = apply_interval
-	if abs(global_position.x - start.x) > 555 or abs(global_position.y - start.y) > 555:
-		global_position = start
 
 func apply_random_impulse():
 	var angle = randf() * 2 * PI
