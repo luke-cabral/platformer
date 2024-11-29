@@ -5,4 +5,3 @@ func _ready():
 	Global.radian = true
 	Global.hook = true
 	Global.glue = true
-
