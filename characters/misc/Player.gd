@@ -28,5 +28,3 @@ func _physics_process(delta):
 			velocity.y = -jump_force
 			
 	move_and_slide()
-
-

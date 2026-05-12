@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://kwr34kgypu4n"]
+[gd_scene load_steps=14 format=3 uid="uid://kwr34kgypu4n"]
 
 [ext_resource type="PackedScene" uid="uid://bs77t3v3hwkgl" path="res://paralax/visuals.tscn" id="1_7lpov"]
 [ext_resource type="Script" path="res://levels/2/level2-s.gd" id="1_owiiv"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cywunrjuk4tes" path="res://levels/2/pixies.tscn" id="10_ysvdn"]
 [ext_resource type="PackedScene" uid="uid://djs2iu8vsr7o4" path="res://levels/testing/teleport.tscn" id="11_mmowu"]
 [ext_resource type="PackedScene" uid="uid://deyehwho6nwcc" path="res://characters/baddies/monkey/monkey.tscn" id="12_73sps"]
+[ext_resource type="AudioStream" uid="uid://cngi72bws7rr0" path="res://levels/2/kingdom.ogg" id="13_0qo1n"]
 
 [node name="level2" type="Node2D"]
 script = ExtResource("1_owiiv")
@@ -118,5 +119,9 @@ position = Vector2(19099, -408)
 position = Vector2(18817, -430)
 face_right = true
 mydoor = NodePath("../door4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_0qo1n")
+autoplay = true
 
 [editable path="visuals"]

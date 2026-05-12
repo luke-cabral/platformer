@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chmmldwo705vl"]
+[gd_scene load_steps=18 format=3 uid="uid://chmmldwo705vl"]
 
 [ext_resource type="PackedScene" uid="uid://bs77t3v3hwkgl" path="res://paralax/visuals.tscn" id="1_x4udc"]
 [ext_resource type="Script" path="res://levels/1/level1-s.gd" id="1_yi4o2"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://d2obi1pabex54" path="res://levels/1/beach.wav" id="11_f110m"]
 [ext_resource type="PackedScene" uid="uid://djs2iu8vsr7o4" path="res://levels/testing/teleport.tscn" id="13_chvsv"]
 [ext_resource type="Texture2D" uid="uid://ccwuh3dk5ahba" path="res://levels/1/cave fog.png" id="13_t0bvp"]
+[ext_resource type="Script" path="res://levels/1/audio_stream_player.gd" id="15_10xyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_voe5a"]
 size = Vector2(791.5, 245)
@@ -168,9 +169,10 @@ texture = ExtResource("13_t0bvp")
 [node name="darken" parent="visuals/3" index="0"]
 position = Vector2(1757.69, -173.846)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_f110m")
 autoplay = true
+script = ExtResource("15_10xyl")
 
 [connection signal="body_entered" from="visuals/0/water1" to="." method="wet1"]
 [connection signal="body_entered" from="visuals/0/water2" to="." method="wet2"]

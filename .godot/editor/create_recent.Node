@@ -1,3 +1,9 @@
+TabContainer
+Button
+Label
+HBoxContainer
+VBoxContainer
+AudioStreamPlayer
 CollisionShape2D
 Area2D
 Timer
@@ -5,10 +11,5 @@ Sprite2D
 CharacterBody2D
 Node2D
 RigidBody2D
-AudioStreamPlayer
 AudioStreamPlayer2D
 AnimatedSprite2D
-Node
-RayCast2D
-state
-CanvasLayer
